@@ -69,6 +69,30 @@ footer.inc.php {
 function display_employee_table() {}
 
 
+function usergroup_or_die ($group1,$group2,$group3,$group4) {
+
+	if ($_SESSION['usergroup_id'] == 1 and $group1 !== 1) {
+		die and redirect
+	} elseif ($_SESSION['usergroup_id'] == 2 and $group2 !== 1) {
+		die and redirect
+	} elseif ($_SESSION['usergroup_id'] == 3 and $group3 !== 1) {
+		die and redirect
+	} elseif ($_SESSION['usergroup_id'] == 4 and $group4 !== 1) {
+		die and redirect
+	}
+
+/*
+Use by telling which usergroups are allowed with a '1'
+
+Ie:
+usergroup_or_die(1,1,0,0)
+*/
+
+} // END FUNCTION usergroup_or_die
+
+
+
+
 
 ?>
 
@@ -169,11 +193,4 @@ function (display employee table)
 		usergroup 1 and 3 can see edit
 		usergroup 2 has no edit options
 
-
 ?>
-
-
-
-
-
-
