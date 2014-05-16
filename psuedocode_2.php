@@ -39,24 +39,6 @@ login_check.inc.php {
 functions.inc.php {
 	all funcitons created (listed below)
 }
-
-
-//FOOTER
-
-database_close.inc.php {
-	mysqli_close function 
-}
-
-header.inc.php {
-	all HTML for header
-	has $pagetitle var 
-}
-
-footer.inc.php {
-	all HTML for footer 
-}
-
-
 ?>
 
 
@@ -65,6 +47,9 @@ footer.inc.php {
 <?php
 
 // functions
+
+// add something here
+
 
 function display_employee_table() {}
 
