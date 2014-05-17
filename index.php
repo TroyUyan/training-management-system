@@ -5,16 +5,16 @@
 
 			<div id="login-aside" class="clear">	
 				
-				<form method="Post" action="process_login.php">
+				<form method="POST" action="process_login.php">
 					<fieldset>
 						<p><strong>Please enter your username and password:</strong></p>
 						<label for="username">Username:</label>
-						<input id="username" type="text" name="username">
+						<input type="text" id="username" name="username">
 						<br>
 						<label for="pass">Password:</label>
-						<input id="pass" type="password" name="pass"> 
+						<input type="password" id="pass" name="pass"> 
 						<br>
-						<input type="Submit" value="LOGIN" class="button">
+						<input type="submit" value="LOGIN" class="button">
 					</fieldset>
 					<a href="help.html" alt="Need help?" class="helpbutton"><strong>&#63;</strong></a>
 				</form>
