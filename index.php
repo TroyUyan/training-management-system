@@ -8,14 +8,58 @@
 			<?php
 				if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
+					echo "<form><fieldset>";
+
+					# get form data
 					$username = $_POST['username'];
 					$pass = $_POST['pass'];
 
-					echo "<form><fieldset>";
-					echo "<p>We have posted</p>";
-					echo "$username<br>$pass";
-					echo "</fieldset></form>";
+					# test data
+					// 
+					// echo "<p>We have posted</p>";
+					// echo "$username<br>$pass";
+					// 
 
+					# Now query the database to see if you get a match for username/password
+					$sql = "SELECT * FROM users WHERE username='$username' AND pass='$pass'"; 
+					
+					# debug statement
+					# echo $sql;
+
+					# perform the query
+					$result = mysqli_query($dbc,$sql);
+
+					# debug statement
+					#var_dump($result);
+
+					if (mysqli_num_rows($result) == 1) {
+						# username and password match
+						# Now set a session variable
+						$_SESSION['loggedin'] = 1;
+						$_SESSION['username'] = $username;
+						echo "You are now logged in!";
+
+						# Get rows
+						$rows = mysqli_fetch_array($result);
+
+						$_SESSION['user_id'] = $rows['user_id'];
+						$_SESSION['first_name'] = $rows['first_name'];
+						$_SESSION['last_name'] = $rows['last_name'];
+						$_SESSION['usergroup_id'] = $rows['usergroup_id'];
+						$_SESSION['department_id'] = $rows['department_id'];
+
+						// echo $_SESSION['user_id'];
+						// echo $_SESSION['first_name'];
+						// echo $_SESSION['last_name'];
+						// echo $_SESSION['usergroup_id'];
+						// echo $_SESSION['department_id'];
+
+					} else {
+						echo "<p>I'm sorry but your login info was not correct.</p>";
+						echo "<p><a href=\"index.php\">Go back</a> and try again.</p>";
+					}
+
+					echo "</fieldset></form>";
 
 				} else { ?>
 					<form method="POST" action="index.php">
