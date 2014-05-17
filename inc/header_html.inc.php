@@ -17,8 +17,7 @@
 			</div> <!-- end motto -->
 			<div class="nav">
 				<ul>
-					<li id="home"><a href="home.php" alt="Return to Greenwell Bank Home Page">HOME</a></li>
-					<li id="login"><a href="login.php" alt="Login">LOGIN</a></li>
+					<li id="home"><a href="index.php" alt="Return to Greenwell Bank Home Page">HOME</a></li>
 					<li id="logout"><a href="logout.php" alt="Logout">LOG OUT</a></li>
 				</ul>
 			</div> <!-- end nav -->
@@ -26,6 +25,6 @@
 
 		<div id="content" >
 			<div id="helpbar">
-				<a href="help.html" title="Need help?" class="helpbutton"><strong>&#63;</strong></a>
+				<!-- <a href="help.html" title="Need help?" class="helpbutton"><strong>&#63;</strong></a> -->
 			</div><!-- end helpbar -->
 			

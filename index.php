@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$page_title=" | Login";
 	include ('inc/header.inc.php');
 ?>
@@ -37,7 +37,6 @@
 						# Now set a session variable
 						$_SESSION['loggedin'] = 1;
 						$_SESSION['username'] = $username;
-						echo "You are now logged in!";
 
 						# Get rows
 						$rows = mysqli_fetch_array($result);
@@ -53,6 +52,9 @@
 						// echo $_SESSION['last_name'];
 						// echo $_SESSION['usergroup_id'];
 						// echo $_SESSION['department_id'];
+
+						echo "<p>You are now logged in!</p>";
+						echo '<br><p><a href="main.php" class="button">Enter System</a></p>';
 
 					} else {
 						echo "<p>I'm sorry but your login info was not correct.</p>";
