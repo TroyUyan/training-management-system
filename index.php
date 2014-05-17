@@ -1,7 +1,8 @@
 <?php 
-	$page_title="Log in page"; 
-	include ('includes/header.inc.php');
+	$page_title=" | Login";
+	include ('inc/header.inc.php');
 ?>
+
 			<div id="login-aside" class="clear">	
 				
 				<form method="Post" action="process_login.php">
@@ -25,4 +26,7 @@
 				<p>Greenwell Bank policy requires all bank employees to complete several training courses each year. It is your responsibility to check on your progress regularly to ensure you meet the requirements.</p>
 				<p>Have a beautiful day.</p>
 			</div> <!-- end content1 -->
-<?php include('includes/footer.inc.php');
+
+<?php 
+	include('inc/footer.inc.php');
+?>

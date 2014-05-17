@@ -1,5 +1,3 @@
-<?php # footer for Training Tracking Management System for Greenwell Bank, a final CTEC 227 project for Troy Uyan, Savanna Lord, and Christine Watson ?>
-?>
 		</div> <!-- end content -->	
 
 		<footer class="clear">
@@ -36,11 +34,7 @@
 				</script>
 
 			</div><!-- end time -->
-		</footer>
-		<?php
-			//close database connection	
-			mysql_close($dbc);
-		?>	
+		</footer>	
 	</div> <!-- end wrapper -->
 </body>
 </html>
