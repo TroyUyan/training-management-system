@@ -3,22 +3,38 @@
 	include ('inc/header.inc.php');
 ?>
 
-			<div id="login-aside" class="clear">	
-				
-				<form method="POST" action="process_login.php">
-					<fieldset>
-						<p><strong>Please enter your username and password:</strong></p>
-						<label for="username">Username:</label>
-						<input type="text" id="username" name="username">
-						<br>
-						<label for="pass">Password:</label>
-						<input type="password" id="pass" name="pass"> 
-						<br>
-						<input type="submit" value="LOGIN" class="button">
-					</fieldset>
-					<a href="help.html" alt="Need help?" class="helpbutton"><strong>&#63;</strong></a>
-				</form>
+			<div id="login-aside" class="clear">
 
+			<?php
+				if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+					$username = $_POST['username'];
+					$pass = $_POST['pass'];
+
+					echo "<form><fieldset>";
+					echo "<p>We have posted</p>";
+					echo "$username<br>$pass";
+					echo "</fieldset></form>";
+
+
+				} else { ?>
+					<form method="POST" action="index.php">
+						<fieldset>
+							<p><strong>Please enter your username and password:</strong></p>
+							<label for="username">Username:</label>
+							<input type="text" id="username" name="username">
+							<br>
+							<label for="pass">Password:</label>
+							<input type="password" id="pass" name="pass"> 
+							<br>
+							<input type="submit" value="LOGIN" class="button">
+						</fieldset>
+						<a href="help.html" alt="Need help?" class="helpbutton"><strong>&#63;</strong></a>
+					</form>
+				<?php
+				}
+			?>
+				
 			</div> <!-- end login-aside -->
 			<img src="img/greenwell_bank.png" alt="colonial style brick bank building" class="building">
 			<div id="content1">
