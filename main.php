@@ -28,9 +28,25 @@
 		} elseif ($_SESSION['usergroup_id'] == 4) {
 
 			#Admin
-			echo "Admin";
+			echo "<p>Usergroup: Admin</p>";
+			?>
 
+			<table>
+				<tr>
+					<th>Users Table</th>
+				</tr>
+				<tr>
+					<td><a href="users_add.php">Add New User</td>
+				</tr>
+				<tr>
+					<td>View All Users</td>
+				</tr>
+				<tr>
+					<td>Edit Employee Records</td>
+				</tr>
+			</table>
 
+		<?php
 		} else {
 			#error-out
 		}
