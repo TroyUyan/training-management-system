@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	
+
+	// NEED LIVE SERVER FOR LOGIN CHECK
 	#include('functions.php');
 	#logincheck();
 

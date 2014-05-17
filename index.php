@@ -15,10 +15,8 @@
 					$pass = $_POST['pass'];
 
 					# test data
-					// 
 					// echo "<p>We have posted</p>";
 					// echo "$username<br>$pass";
-					// 
 
 					# Now query the database to see if you get a match for username/password
 					$sql = "SELECT * FROM users WHERE username='$username' AND pass='$pass'"; 

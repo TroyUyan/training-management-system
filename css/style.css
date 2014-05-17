@@ -260,7 +260,7 @@ td {
 
 footer {
 	background:#bad2b9;
-	position:fixed;
+	/*position:fixed;   FOR SPACE ONLY, PUT BACK LATER*/
 	bottom:0;
 	width:900px;
 }

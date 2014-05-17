@@ -24,7 +24,7 @@
 		</header>
 
 		<div id="content" >
-			<div id="helpbar">
-				<!-- <a href="help.html" title="Need help?" class="helpbutton"><strong>&#63;</strong></a> -->
-			</div><!-- end helpbar -->
+<!-- 			<div id="helpbar">
+	<a href="help.html" title="Need help?" class="helpbutton"><strong>&#63;</strong></a>
+</div>end helpbar -->
 			
