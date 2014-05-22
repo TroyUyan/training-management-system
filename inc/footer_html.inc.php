@@ -12,7 +12,7 @@
 					var day = currentDate.getDate()
 					var month = currentDate.getMonth() + 1
 					var year = currentDate.getFullYear()
-					document.write("<p><strong>" + month + "/" + day + "/" + year + "</strong></p>")
+					document.write("<p>" + month + "/" + day + "/" + year + "&nbsp; ")
 					//add time
 					var currentTime = new Date()
 					var hours = currentTime.getHours()
@@ -30,7 +30,7 @@
 					hours = 12;
 					}
 
-					document.write("<p><strong>" + hours + ":" + minutes + " " + suffix + "</strong></p>")				
+					document.write("&nbsp; " + hours + ":" + minutes + " " + suffix + "</p>")				
 				</script>
 
 			</div><!-- end time -->

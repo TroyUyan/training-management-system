@@ -3,7 +3,8 @@ CSS for PHP2 (CTEC 227) Final, Spring 2014
 Training tracking management system
 Team - Troy Uyan, Savanna Lord, Christine Watson
 
-Project colors: #fff; #292930; #bad2b9; #e8e8e8;
+Project colors: #fff; background #292930; green #bad2b9; #e8e8e8; 
+light green #EAF2EA; blackish #111; medium green #D6E4D5;
 */
 body {
 	margin:0;
@@ -115,10 +116,15 @@ a:active { color: #111; }
 
 /* login page */
 #login-aside form{
+	margin:0;
 	width:222px;
 	height:367px;
-	background:#bad2b9;
-	background-opacity:40%;
+	background:#D6E4D5;
+	border:none;
+}
+
+#login-aside fieldset{
+	border:none;
 }
 
 #login-aside h3 {
@@ -147,7 +153,7 @@ a:active { color: #111; }
 
 }
 
-/* buttons */
+/* body buttons */
 .helpbutton {
 	margin: 0 0.35em 0.35em 0.35em;
 	padding:0.5em 1em;
@@ -177,27 +183,37 @@ a:active { color: #111; }
 	border: 1px solid #f9de6b; 
 	box-shadow: 2px 2px 2px #766A57;
 	text-decoration:none;
-/*	float:right; */
 }
 
 .button:hover {
+	color:#111;
+	background:#EAF2EA;
+	border: 1px solid #bad2b9;
+}
+
+.button:active {
 	background:#111;
 	border:1px solid #bad2b9;
 	color:#e8e8e8;
 }
 
+
+
 /* form */
 
-fieldset {border:white;}
+fieldset {
+	border:2px solid #fff;
+	border-radius: 5px;
+}
 
 form {
 	width: 100%;
 	float:left;
-	margin-left: 0;
+	margin: 30px 0;
+	padding:0.5em;
+	border: 2px solid #111;
 	border-radius: 5px;
-/*	border:3px solid #111; */
-	box-shadow: 2px 2px 3px #766A57;	
-	background:#FFFFFA;
+	background:#D6E4D5;
 }
 
 label {
@@ -211,6 +227,12 @@ input {
 	background:#e8e8e8;
 }
 
+select {
+	padding: 0.3em 0.5em;
+	background: #e8e8e8;
+	font-family:'Lora', serif;
+}
+
 /* table */
 table {
 	border: 2px solid #111;
@@ -220,8 +242,11 @@ table {
 th {
 	margin:0;
 	padding: 1em 2em;
-	background: #bad2b9;
+	background: #D6E4D5;
+	color:#000;
+	letter-spacing: 0.0625em;
 	text-align:center;
+	border-bottom: 2px solid #111;
 }
 
 td {
@@ -229,11 +254,13 @@ td {
 	border: 2px solid #bad2b9;
 }
 
+tr:nth-of-type(odd) {
+  background-color:#EAF2EA;
+}
 
 /* login page image */
 .building {
 	float:right;
-/*	border:3px solid #111; */
 	border-radius: 5px;
 	width:630px;
 	height:367px;
@@ -252,23 +279,19 @@ td {
 .left {float:left;}
 .right {float:right;}
 
+/* footer */
+footer {
+	border-top: 6px solid #111;
+	background:#bad2b9;
+	width:900px;
+}
+
 /* footer date/time */
 .time {
-	margin:0;
-	padding:0.5em;
-	float:right;
-	display:inline;
+	margin:-40px 0 0 0;
+	padding:0 25px 20px 715px;
 }
 
 .copy {
-	padding-left: 1em;
-	float:left;
-	line-height: 4.5em;
-}
-
-footer {
-	background:#bad2b9;
-	/*position:fixed;   FOR SPACE ONLY, PUT BACK LATER*/
-	bottom:0;
-	width:900px;
+	padding-left: 25px;
 }

@@ -67,25 +67,47 @@
 				<tr>
 				  <td>Jill</td>
 				  <td>Smith</td>		
-				  <td>50</td>
+				  <td class="center">50</td>
 				</tr>
 				<tr>
 				  <td>Eve</td>
 				  <td>Jackson</td>		
-				  <td>94</td>
+				  <td class="center">94</td>
 				</tr>
 				<tr>
 				  <td>John</td>
 				  <td>Doe</td>		
-				  <td>80</td>
+				  <td class="center">80</td>
+				</tr>
+				<tr>
+				  <td>Troy</td>
+				  <td>Uyan</td>		
+				  <td class="center">100</td>
 				</tr>
 			</table>
+
+			<form>
+				<fieldset>
+					<legend>Test form:</legend>
+					First name: <input type="text" name="firstname"><br>
+					Last name: <input type="text" name="lastname"><br>
+					<input type="radio" name="sex" value="male">Male<br>
+					<input type="radio" name="sex" value="female">Female<br>
+					<input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+					<input type="checkbox" name="vehicle" value="Car">I have a car <br>
+					<select name="cars">
+						<option value="volvo">Volvo</option>
+						<option value="saab">Saab</option>
+						<option value="fiat">Fiat</option>
+						<option value="audi">Audi</option>
+					</select>
+				</fieldset>
+			</form>
+
 			<p class="center"><em>Help Us Help You Take Over the World</em></p>
 		</div> <!-- end content -->	
 
 		<footer class="clear">
-			<div class="line">
-			</div><!-- end line -->
 			
 			<p class="copy">&copy; 2014 Greenwell Bank</p>
 			<div class="time">
@@ -95,7 +117,7 @@
 					var day = currentDate.getDate()
 					var month = currentDate.getMonth() + 1
 					var year = currentDate.getFullYear()
-					document.write("<p><strong>" + month + "/" + day + "/" + year + "</strong></p>")
+					document.write("<p>" + month + "/" + day + "/" + year + " &nbsp;")
 					//add time
 					var currentTime = new Date()
 					var hours = currentTime.getHours()
@@ -113,7 +135,7 @@
 					hours = 12;
 					}
 
-					document.write("<p><strong>" + hours + ":" + minutes + " " + suffix + "</strong></p>")				
+					document.write(" &nbsp;" + hours + ":" + minutes + " " + suffix + "</p>")				
 				</script>
 
 			</div><!-- end time -->
