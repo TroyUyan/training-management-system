@@ -47,7 +47,7 @@ header h1 {
 
 #motto {
 	float:right;
-	margin: 0;
+	margin: -20px 0 0 0;
 	padding: 0 1em;
 	font-size: 0.8em;
 }
@@ -147,7 +147,7 @@ a:active { color: #111; }
 }
 
 #content {
-	margin-bottom: 10em;
+	margin-bottom: 1em;
 	float:left;
 	width:100%;
 
@@ -224,13 +224,15 @@ label {
 }
 
 input {
+
 	background:#e8e8e8;
 }
 
 select {
-	padding: 0.3em 0.5em;
+	padding: 0.3em 0.6em;
 	background: #e8e8e8;
 	font-family:'Lora', serif;
+	border:1px solid #bad2b9;
 }
 
 /* table */
