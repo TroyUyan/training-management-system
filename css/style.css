@@ -195,21 +195,23 @@ form {
 	border: 2px solid #111;
 	border-radius: 5px;
 	background:#D6E4D5;
+	font-family: 'Lora', serif;
 }
 
 label {
-	padding:1em;
-/*	width:15%; */
+/*	padding:1em; */
 	font-size:1.2em;
 	line-height: 2em;
-	float:left;
+	float:right;
 	text-align: right;
+	margin-right:20px;
+	width:100px;
 	
 }
 
 input {
 	background:#e8e8e8;
-	margin-bottom:1em;
+	margin: 0 0.35em 1em 0.75em;
 }
 
 select {
@@ -218,7 +220,6 @@ select {
 	border:1px solid #bad2b9;
 	border-radius: 5px;
 	font-family:'Lora', serif;
-	
 }
 
 textarea {
@@ -227,12 +228,14 @@ textarea {
 	border:1px solid #bad2b9;
 	border-radius:5px;
 	background:#e8e8e8;
+	font-family:'Lora', serif;
 }
 
 textarea:focus, input:focus, select:focus {
 	border: 2px solid #ffcc00;
 	border-radius: 5px;
-	background:#efeeee;;
+	background:#efeeee;
+	font-family:'Lora', serif;
 }
 
 /* login page form */
@@ -258,17 +261,20 @@ textarea:focus, input:focus, select:focus {
 #login-aside label {
 	width:20%;
 	padding:0;
-	margin-right: 1em;
+	margin: 0;
+	float:left;
 	font-size:1.2em;
 	line-height: 2em;
 	display:block;
-
 }
+
+#login-aside input {margin:0 0 1em 0;}
 
 /* table */
 table {
 	border: 2px solid #111;
 	border-radius: 5px;
+	font-family:'Lora', serif;
 }
 
 th {
