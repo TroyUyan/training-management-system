@@ -192,7 +192,7 @@ form {
 	float:left;
 	margin: 30px 0;
 	padding:1.25em;
-	border: 2px solid #111;
+	border: 2px solid #bad2b9; 
 	border-radius: 5px;
 	background:#D6E4D5;
 	font-family: 'Lora', serif;
@@ -272,7 +272,8 @@ textarea:focus, input:focus, select:focus {
 
 /* table */
 table {
-	border: 2px solid #111;
+	border: 3px solid #bad2b9; 
+	border-collapse: collapse;
 	border-radius: 5px;
 	font-family:'Lora', serif;
 }
@@ -284,7 +285,8 @@ th {
 	color:#000;
 	letter-spacing: 0.0625em;
 	text-align:center;
-	border-bottom: 2px solid #111;
+	border:2px solid #fff;
+	border-bottom: 2px solid #bad2b9; 
 }
 
 td {
