@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="shortcut icon" type="image/png" href="img/gbfav.png">
 	<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<?php 
@@ -19,12 +20,17 @@
 			<a href="login.php"><img src="img/clearlogo.png" alt="Greenwell Bank logo" class="logo"></a>
 			<h1>Training Tracking Management System</h1>
 			<div id="motto">
-				<p><em>Help Us Help You Take Over the World</em></p>
+				<p>Help Us Help You Take Over the World</p>
 			</div> <!-- end motto -->
 			<div class="nav">
 				<ul>
-					<li id="home"><a href="home.php" alt="Return to Greenwell Bank Home Page">HOME</a></li>
-					<li id="login"><a href="login.php" alt="Login">LOGIN</a></li>
+					<li id="home"><a href="main.php" alt="Return to Greenwell Bank Home Page">HOME</a></li>
+					<li id="login"><a href="user.php" alt="Login">Users</a></li>
+					
+					<li class="testnav"><a href="courses.php" title="courses">Courses</a></li>
+					<li class="testnav"><a href="dept.php" title="department">Department</a></li>
+					<li class="testnav"><a href="#" title="test empty"></a></li>
+
 					<li id="logout"><a href="logout.php" alt="Logout">LOG OUT</a></li>
 				</ul>
 			</div> <!-- end nav -->
@@ -38,7 +44,7 @@
 				
 				<form method="Post" action="process_login.php">
 					<fieldset>
-						<p><strong>Please enter your username and password:</strong></p>
+						<h3><strong>Please enter your username and password:</strong></h3>
 						<label for="username">Username:</label>
 						<input id="username" type="text" name="username">
 						<br>
@@ -58,7 +64,7 @@
 				<p>Have a beautiful day.</p>
 			</div> <!-- end content1 -->
 
-			<table style="width:300px">
+			<table class="clear">
 				<tr>
 				  <th>Firstname</th>
 				  <th>Lastname</th>		
@@ -100,7 +106,9 @@
 						<option value="saab">Saab</option>
 						<option value="fiat">Fiat</option>
 						<option value="audi">Audi</option>
-					</select>
+					</select><br>
+					<textarea name="Message" rows="10" cols="40" onfocus="this.value=''; this.onfocus=null;">Please enter your comments here</textarea>
+
 				</fieldset>
 			</form>
 
@@ -110,32 +118,13 @@
 		<footer class="clear">
 			
 			<p class="copy">&copy; 2014 Greenwell Bank</p>
-			<div class="time">
+
+			<div id="time">
 				<script type="text/javascript">
-					//add date
-					var currentDate = new Date()
-					var day = currentDate.getDate()
-					var month = currentDate.getMonth() + 1
-					var year = currentDate.getFullYear()
-					document.write("<p>" + month + "/" + day + "/" + year + " &nbsp;")
-					//add time
-					var currentTime = new Date()
-					var hours = currentTime.getHours()
-					var minutes = currentTime.getMinutes()
-
-					if (minutes < 10)
-					minutes = "0" + minutes
-
-					var suffix = "AM";
-					if (hours >= 12) {
-					suffix = "PM";
-					hours = hours - 12;
+					document.write ('<p><span id="date-time">', new Date().toLocaleString(), '<\/span><\/p>')
+					if (document.getElementById) onload = function () {
+						setInterval ("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50)
 					}
-					if (hours == 0) {
-					hours = 12;
-					}
-
-					document.write(" &nbsp;" + hours + ":" + minutes + " " + suffix + "</p>")				
 				</script>
 
 			</div><!-- end time -->
