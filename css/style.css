@@ -4,7 +4,8 @@ Training tracking management system
 Team - Troy Uyan, Savanna Lord, Christine Watson
 
 Project colors: #fff; background #292930; green #bad2b9; #e8e8e8; 
-light green #EAF2EA; blackish #111; medium green #D6E4D5;
+light green #EAF2EA; blackish #111; medium green #D6E4D5; 
+cta #ffcc00; cta hov #f9de6b;
 */
 body {
 	margin:0;
@@ -39,16 +40,21 @@ header {
 header h1 {
 	margin:1em;
 	float:left;
-	
+	font-family: 'IM Fell DW Pica', serif; 
 	font-size: 2.2em;
-	color: #efeeee;
+	color: #efeeee; 
+/*	text-transform:uppercase; */
+	letter-spacing: 0.025em; 
 }
 
 #motto {
 	float:right;
 	margin: -20px 0 0 0;
 	padding: 0 1em;
-	font-size: 0.8em;
+	font-size: 1.1em;
+	font-family: 'Lora', serif;
+	letter-spacing: 0.0525em;
+	font-style: italic;
 }
 
 /* navigation */
@@ -113,30 +119,7 @@ a:active { color: #111; }
 	padding-top:0.5em;
 }
 
-/* login page */
-#login-aside form{
-	margin:0;
-	width:222px;
-	height:367px;
-	background:#D6E4D5;
-	border:none;
-}
 
-#login-aside fieldset{
-	border:none;
-}
-
-#login-aside h3 {
-	margin-top:0;
-}
-
-#login-aside label {
-	width:20%;
-	margin-right: 1em;
-	font-size:1.2em;
-	line-height: 2em;
-	display:block;
-}
 
 .line {
 	width:100%;
@@ -154,7 +137,7 @@ a:active { color: #111; }
 
 /* body buttons */
 .helpbutton {
-	margin: 0 0.35em 0.35em 0.35em;
+	margin: -0.35em 0.35em 0.35em 0.35em;
 	padding:0.5em 1em;
 	float:right;
 	background:#ffcc00;
@@ -166,9 +149,7 @@ a:active { color: #111; }
 }
 
 .helpbutton:hover {
-	padding:0.51em 1.01em;
-	font-size: 1.1em;
-	background:f9de6b;
+	background:#f9de6b;
 }
 
 .button {
@@ -176,17 +157,17 @@ a:active { color: #111; }
 	padding:1em 2em;
 	background: #ffcc00;
 	color: #111;
-	font-family: Georgia, serif;
+	font-family: 'IM Fell DW Pica', serif;
 	font-weight:700;
 	border-radius: 5px;
 	border: 1px solid #f9de6b; 
-	box-shadow: 2px 2px 2px #766A57;
+	box-shadow: 1px 1px 2px #766A57;
 	text-decoration:none;
 }
 
 .button:hover {
 	color:#111;
-	background:#EAF2EA;
+	background:#f9de6b;
 	border: 1px solid #bad2b9;
 }
 
@@ -201,59 +182,100 @@ a:active { color: #111; }
 /* form */
 
 fieldset {
-	border:2px solid #fff;
+	border:5px solid #fff;
 	border-radius: 5px;
+	padding:1em;
 }
 
 form {
-	width: 100%;
+/*	width: 95%; */
 	float:left;
 	margin: 30px 0;
-	padding:0.5em;
-	border: 2px solid #111;
+	padding:1.25em;
+	border: 2px solid #bad2b9; 
 	border-radius: 5px;
 	background:#D6E4D5;
+	font-family: 'Lora', serif;
 }
 
 label {
-	margin-right: 1em;
+/*	padding:1em; */
 	font-size:1.2em;
 	line-height: 2em;
-	display:block;
+	float:right;
+	text-align: right;
+	margin-right:20px;
+	width:100px;
+	
 }
 
 input {
-<<<<<<< HEAD
-
-=======
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */
-	border:2px inset;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 6dffc85... css stuff
-=======
-=======
->>>>>>> decdd1cf224001d5eb095fc39cfbe5f208d6f2b0
->>>>>>> parent of 6dffc85... css stuff
-=======
->>>>>>> parent of 6dffc85... css stuff
 	background:#e8e8e8;
+	margin: 0 0.35em 1em 0.75em;
 }
 
 select {
 	padding: 0.3em 0.6em;
 	background: #e8e8e8;
-	font-family:'Lora', serif;
 	border:1px solid #bad2b9;
+	border-radius: 5px;
+	font-family:'Lora', serif;
 }
+
+textarea {
+	margin-top:2em;
+	padding:0.25em;
+	border:1px solid #bad2b9;
+	border-radius:5px;
+	background:#e8e8e8;
+	font-family:'Lora', serif;
+}
+
+textarea:focus, input:focus, select:focus {
+	border: 2px solid #ffcc00;
+	border-radius: 5px;
+	background:#efeeee;
+	font-family:'Lora', serif;
+}
+
+/* login page form */
+#login-aside form{
+	margin:0;
+	padding:0.75em;
+	width:222px;
+	height:365px;
+	background:#D6E4D5;
+	border:none;
+}
+
+#login-aside fieldset{
+	border:none;
+	padding:0 1em;
+}
+
+#login-aside h3 {
+	margin-top:0;
+	padding-top:0;
+}
+
+#login-aside label {
+	width:20%;
+	padding:0;
+	margin: 0;
+	float:left;
+	font-size:1.2em;
+	line-height: 2em;
+	display:block;
+}
+
+
 
 /* table */
 table {
-	border: 2px solid #111;
+	border: 3px solid #bad2b9; 
+	border-collapse: collapse;
 	border-radius: 5px;
+	font-family:'Lora', serif;
 }
 
 th {
@@ -263,7 +285,8 @@ th {
 	color:#000;
 	letter-spacing: 0.0625em;
 	text-align:center;
-	border-bottom: 2px solid #111;
+	border:2px solid #fff;
+	border-bottom: 2px solid #bad2b9; 
 }
 
 td {
@@ -274,6 +297,7 @@ td {
 tr:nth-of-type(odd) {
   background-color:#EAF2EA;
 }
+
 
 /* login page image */
 .building {
@@ -304,9 +328,9 @@ footer {
 }
 
 /* footer date/time */
-.time {
+#time {
 	margin:-40px 0 0 0;
-	padding:0 25px 20px 715px;
+	padding:0 25px 20px 700px;
 }
 
 .copy {
