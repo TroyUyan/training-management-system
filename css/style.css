@@ -90,7 +90,7 @@ header h1 {
   text-transform: uppercase;
 }
 
-.nav li:hover {
+.nav a:hover {
   background: #bad2b9;
   color:#111;
 }   
