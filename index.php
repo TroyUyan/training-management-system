@@ -64,7 +64,7 @@
 				} else { ?>
 					<form method="POST" action="index.php">
 						<fieldset>
-							<p><strong>Please enter your username and password:</strong></p>
+							<h3><strong>Please enter your username and password:</strong></h3>
 							<label for="username">Username:</label>
 							<input type="text" id="username" name="username">
 							<br>
