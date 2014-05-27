@@ -7,6 +7,10 @@ Project colors: #fff; background #292930; green #bad2b9; #e8e8e8;
 light green #EAF2EA; blackish #111; medium green #D6E4D5; 
 cta #ffcc00; cta hov #f9de6b;
 */
+* {
+  border: none;
+}
+
 body {
 	margin:0;
 	padding:0;
@@ -137,7 +141,7 @@ a:active { color: #111; }
 
 /* body buttons */
 .helpbutton {
-	margin: -0.35em 0.35em 0.35em 0.35em;
+	margin: 0.35em 0.35em 0.35em 0.35em; 
 	padding:0.5em 1em;
 	float:right;
 	background:#ffcc00;
@@ -163,12 +167,13 @@ a:active { color: #111; }
 	border: 1px solid #f9de6b; 
 	box-shadow: 1px 1px 2px #766A57;
 	text-decoration:none;
+	text-transform:uppercase;
 }
 
 .button:hover {
 	color:#111;
 	background:#f9de6b;
-	border: 1px solid #bad2b9;
+	border: 1px solid #f9de6b;
 }
 
 .button:active {
@@ -180,6 +185,7 @@ a:active { color: #111; }
 
 
 /* form */
+
 
 fieldset {
 	border:5px solid #fff;
@@ -210,6 +216,10 @@ label {
 }
 
 input {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	border:2px inset;
 	background:#e8e8e8;
 	margin: 0 0.35em 1em 0.75em;
 }
@@ -224,14 +234,18 @@ select {
 
 textarea {
 	margin-top:2em;
-	padding:0.25em;
+	padding:0.25em; 
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */	
+	width:100%;
 	border:1px solid #bad2b9;
 	border-radius:5px;
 	background:#e8e8e8;
 	font-family:'Lora', serif;
 }
 
-textarea:focus, input:focus, select:focus {
+textarea:focus, input:focus, select:focus {		
 	border: 2px solid #ffcc00;
 	border-radius: 5px;
 	background:#efeeee;
@@ -266,6 +280,15 @@ textarea:focus, input:focus, select:focus {
 	font-size:1.2em;
 	line-height: 2em;
 	display:block;
+}
+
+#login-aside input {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	width:100%;
+	margin:0.5em 0;
+
 }
 
 
@@ -307,8 +330,7 @@ tr:nth-of-type(odd) {
 	height:367px;
 }
 
-#content1 {
-	
+#content1 {	
 	float:left;
 	margin-top:2em;
 	padding:0.5em;
