@@ -42,7 +42,7 @@ header h1 {
 	float:left;
 	font-family: 'IM Fell DW Pica', serif; 
 	font-size: 2.2em;
-	color: #efeeee; 
+	color: #111; 
 /*	text-transform:uppercase; */
 	letter-spacing: 0.025em; 
 }
@@ -92,6 +92,7 @@ header h1 {
 
 .nav li:hover {
   background: #bad2b9;
+  color:#111;
 }   
 
 .nav li:active {
@@ -137,7 +138,6 @@ a:active { color: #111; }
 
 /* body buttons */
 .helpbutton {
-	margin: -0.35em 0.35em 0.35em 0.35em;
 	padding:0.5em 1em;
 	float:right;
 	background:#ffcc00;
@@ -153,6 +153,7 @@ a:active { color: #111; }
 }
 
 .button {
+	clear:both;
 	margin: 1em 0;
 	padding:1em 2em;
 	background: #ffcc00;
@@ -168,7 +169,7 @@ a:active { color: #111; }
 .button:hover {
 	color:#111;
 	background:#f9de6b;
-	border: 1px solid #bad2b9;
+	border: 1px solid #f9de6b;
 }
 
 .button:active {
@@ -210,6 +211,10 @@ label {
 }
 
 input {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	border:2px inset #bad2b9;
 	background:#e8e8e8;
 	margin: 0 0.35em 1em 0.75em;
 }
@@ -225,6 +230,11 @@ select {
 textarea {
 	margin-top:2em;
 	padding:0.25em;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */	
+	width:100%;
+
 	border:1px solid #bad2b9;
 	border-radius:5px;
 	background:#e8e8e8;
@@ -236,6 +246,7 @@ textarea:focus, input:focus, select:focus {
 	border-radius: 5px;
 	background:#efeeee;
 	font-family:'Lora', serif;
+	display:block;
 }
 
 /* login page form */
@@ -268,6 +279,14 @@ textarea:focus, input:focus, select:focus {
 	display:block;
 }
 
+#login-aside input {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	width:100%;
+	margin:0.5em 0;
+
+}
 
 
 /* table */
