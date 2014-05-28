@@ -1,5 +1,5 @@
 <?php 
-	$page_title=" | Login";
+	$page_title=" | Home Page";
 	include ('inc/header.inc.php');
 ?>
 
@@ -16,7 +16,7 @@
 			<div class="tablesection">
 				<h3>Users Table</h3>
 				<a href="users_add.php"><p class="button">Add New User</p></a>
-				<a href="#"><p class="button">View All Users</p>
+				<a href="users_view.php"><p class="button">View All Users</p>
 				<a href="#"><p class="button">Edit Employee Records</p>
 			</div>
 

@@ -1,6 +1,6 @@
 <?php 
 	$page_title=" | Add User";
-	include ('/inc/header.inc.php');
+	include ('inc/header.inc.php');
 ?>
 
 	<h2>Training Tracking Management System</h2>
@@ -94,5 +94,5 @@
 			
 
 <?php 
-	include('/inc/footer.inc.php');
+	include('inc/footer.inc.php');
 ?>
