@@ -164,6 +164,7 @@ a:active { color: #111; }
 	border: 1px solid #f9de6b; 
 	box-shadow: 1px 1px 2px #766A57;
 	text-decoration:none;
+	text-transform: uppercase;
 }
 
 .button:hover {
@@ -189,7 +190,7 @@ fieldset {
 }
 
 form {
-/*	width: 95%; */
+	max-width: 95%;
 	float:left;
 	margin: 30px 0;
 	padding:1.25em;
@@ -204,9 +205,9 @@ label {
 	font-size:1.2em;
 	line-height: 2em;
 	float:right;
-	text-align: right;
-	margin-right:20px;
-	width:100px;
+/*	text-align: right; */
+/*	margin-right:20px; */
+/*	width:100px; */
 	
 }
 
@@ -234,7 +235,6 @@ textarea {
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */	
 	width:100%;
-
 	border:1px solid #bad2b9;
 	border-radius:5px;
 	background:#e8e8e8;
@@ -242,6 +242,9 @@ textarea {
 }
 
 textarea:focus, input:focus, select:focus {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
 	border: 2px solid #ffcc00;
 	border-radius: 5px;
 	background:#efeeee;
@@ -291,6 +294,7 @@ textarea:focus, input:focus, select:focus {
 
 /* table */
 table {
+	max-width:95%;
 	border: 3px solid #bad2b9; 
 	border-collapse: collapse;
 	border-radius: 5px;
@@ -304,8 +308,8 @@ th {
 	color:#000;
 	letter-spacing: 0.0625em;
 	text-align:center;
-	border:2px solid #fff;
-	border-bottom: 2px solid #bad2b9; 
+	border:2px solid #bad2b9;
+	border-right: 1px solid #fff; 
 }
 
 td {
