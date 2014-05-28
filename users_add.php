@@ -77,7 +77,7 @@
 
 					</select>
 				</p>
-				<input type="submit" value="Add New User">
+				<input type="submit" value="Add New User" class="button">
 			</form>
 
 			

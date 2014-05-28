@@ -111,7 +111,46 @@
 					<input type="Submit" value="Submit" class="button">
 				</fieldset>
 			</form>
+			<form method="POST" action="users_add.php">
+				<p>
+					<label>User ID</label>
+					<input type="text" name="user_id" placeholder="AUTO" disabled="1">
+				</p>
+				<p>
+					<label>Username</label>
+					<input type="text" name="username">
+				</p>
+				<p>
+					<label>Password</label>
+					<input type="text" name="pass">
+				</p>
+				<p>
+					<label>First Name</label>
+					<input type="text" name="first_name">
+				</p>
+				<p>
+					<label>Last Name</label>
+					<input type="text" name="last_name">
+				</p>
+				<p>
+					<label>Usergroup</label>
+					<select name="usergroup_id">
+						<option value="1">Employee</option>
+						<option value="2">Coordinator</option>
+						<option value="3">Viewer</option>
+						<option value="4">Admin</option>
+					</select>
+				</p>
+				<p>
+					<label>Department</label>
+					<select name="department_id">
+						<option value="1">Department One</option>
+						<option value="0">-- NO DEPARTMENT --</option>
 
+					</select>
+				</p>
+				<input type="submit" value="Add New User">
+			</form>
 			<p class="center" class="clear"><em>Help Us Help You Take Over the World</em></p>
 		</div> <!-- end content -->	
 
