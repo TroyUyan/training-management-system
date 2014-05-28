@@ -51,6 +51,8 @@
 						// echo $_SESSION['usergroup_id'];
 						// echo $_SESSION['department_id'];
 
+						header('location:/main.php');
+
 						echo "<p>You are now logged in!</p>";
 						echo '<br><p><a href="main.php" class="button">Enter System</a></p>';
 
