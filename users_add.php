@@ -64,35 +64,34 @@
 				</p>
 				<p>
 					<label>Username</label>
-					<input type="text" name="username" value="<?php if (isset($_POST['username'])) { echo $_POST['username']; }?>  ">
+					<input type="text" name="username" value="<?php if(isset($_POST['username'])){echo $_POST['username'];}?>">
 				</p>
 				<p>
 					<label>Password</label>
-					<input type="text" name="pass">
+					<input type="text" name="pass" value="<?php if(isset($_POST['pass'])){echo $_POST['pass'];}?>">
 				</p>
 				<p>
 					<label>First Name</label>
-					<input type="text" name="first_name">
+					<input type="text" name="first_name" value="<?php if(isset($_POST['first_name'])){echo $_POST['first_name'];}?>">
 				</p>
 				<p>
 					<label>Last Name</label>
-					<input type="text" name="last_name">
+					<input type="text" name="last_name" value="<?php if(isset($_POST['last_name'])){echo $_POST['last_name'];}?>">
 				</p>
 				<p>
 					<label>Usergroup</label>
 					<select name="usergroup_id">
-						<option value="1">Employee</option>
-						<option value="2">Coordinator</option>
-						<option value="3">Viewer</option>
-						<option value="4">Admin</option>
+						<option value="1" <?php if($_POST['usergroup_id'] == 1){echo 'selected="1"';}?>>Employee</option>
+						<option value="2" <?php if($_POST['usergroup_id'] == 2){echo 'selected="1"';}?>>Coordinator</option>
+						<option value="3" <?php if($_POST['usergroup_id'] == 3){echo 'selected="1"';}?>>Viewer</option>
+						<option value="4" <?php if($_POST['usergroup_id'] == 4){echo 'selected="1"';}?>>Admin</option>
 					</select>
 				</p>
 				<p>
 					<label>Department</label>
 					<select name="department_id">
-						<option value="1">Department One</option>
-						<option value="0">-- NO DEPARTMENT --</option>
-
+						<option value="1" <?php if($_POST['department_id'] == 1){echo 'selected="1"';}?>>Department One</option>
+						<option value="0" <?php if($_POST['department_id'] == 0){echo 'selected="1"';}?>>-- NO DEPARTMENT --</option>
 					</select>
 				</p>
 				<input type="submit" value="Add New User" class="button">
