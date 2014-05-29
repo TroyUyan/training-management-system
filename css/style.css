@@ -342,6 +342,52 @@ tr:nth-of-type(odd) {
 .left {float:left;}
 .right {float:right;}
 
+
+/* main.php menus */
+.tablesection {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 31.33%;
+  background-color: #eee;
+  padding: 7px 5px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-right: 2%;
+  float: left;
+}
+
+.tablesection h3 {
+	margin-left: 10px;
+}
+
+.sectionbutton {
+	clear:both;
+	margin: 1em 0;
+	padding:1em 2em;
+	background: #ffcc00;
+	color: #111;
+	font-family: 'IM Fell DW Pica', serif;
+	font-weight:700;
+	border-radius: 5px;
+	border: 1px solid #f9de6b; 
+	box-shadow: 1px 1px 2px #766A57;
+	text-decoration:none;
+	text-transform: uppercase;
+}
+
+.sectionbutton:hover {
+	color:#111;
+	background:#f9de6b;
+	border: 1px solid #f9de6b;
+}
+
+.sectionbutton:active {
+	background:#111;
+	border:1px solid #bad2b9;
+	color:#e8e8e8;
+}
+
 /* footer */
 footer {
 	border-top: 6px solid #111;

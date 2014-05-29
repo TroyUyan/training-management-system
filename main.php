@@ -15,12 +15,26 @@
 
 			<div class="tablesection">
 				<h3>Users Table</h3>
-				<a href="users_add.php"><p class="button">Add New User</p></a>
-				<a href="users_view.php"><p class="button">View All Users</p>
-				<a href="#"><p class="button">Edit Employee Records</p>
+				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
+				<a href="users_view.php"><p class="sectionbutton">View All Users</p>
+				<a href="#"><p class="sectionbutton">Edit Employee Records</p>
 			</div>
 
-			<table>
+			<div class="tablesection">
+				<h3>Users Table</h3>
+				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
+				<a href="users_view.php"><p class="sectionbutton">View All Users</p>
+				<a href="#"><p class="sectionbutton">Edit Employee Records</p>
+			</div>
+
+			<div class="tablesection">
+				<h3>Users Table</h3>
+				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
+				<a href="users_view.php"><p class="sectionbutton">View All Users</p>
+				<a href="#"><p class="sectionbutton">Edit Employee Records</p>
+			</div>
+
+<!-- 			<table>
 				<tr>
 					<th>Users Table</th>
 				</tr>
@@ -33,7 +47,7 @@
 				<tr>
 					<td class="button"><a href="#">Edit Employee Records</a></td>
 				</tr>
-			</table>
+			</table> -->
 
 		<?php
 
