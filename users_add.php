@@ -13,27 +13,45 @@
 
 			if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-				$username = $_POST['username'];
-				$pass = $_POST['pass'];
-				$first_name = $_POST['first_name'];
-				$last_name = $_POST['last_name'];
-				$usergroup_id = $_POST['usergroup_id'];
-				$department_id = $_POST['department_id'];
-
-				$sql="
-				INSERT INTO gwb_training.users
-				(user_id, username, pass, first_name, last_name, usergroup_id, department_id)
-				VALUES (NULL, '$username', '$pass', '$first_name', '$last_name', '$usergroup_id', '$department_id')
-				";
-
-				mysqli_query($dbc, $sql);
-
-				if (mysqli_affected_rows($dbc) == 1) {
-					echo "<p>The user was successfully added to the database!</p>";
-					echo "<p>You can add another below.</p>";
+/*				if (!empty($_REQUEST["name"])) {
+					$name = $_REQUEST["name"];
 				} else {
-					echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
-				}
+					$name = NULL;
+					echo '<p class="error">Field needed.</p>';
+				}*/
+
+				if(!empty($_POST['username']) &&
+					!empty($_POST['pass']) &&
+					!empty($_POST['first_name']) &&
+					!empty($_POST['last_name']) &&
+					!empty($_POST['usergroup_id']) &&
+					!empty($_POST['department_id'])
+					) {
+						$username = $_POST['username'];
+						$pass = $_POST['pass'];
+						$first_name = $_POST['first_name'];
+						$last_name = $_POST['last_name'];
+						$usergroup_id = $_POST['usergroup_id'];
+						$department_id = $_POST['department_id'];
+
+						$sql="
+						INSERT INTO gwb_training.users
+						(user_id, username, pass, first_name, last_name, usergroup_id, department_id)
+						VALUES (NULL, '$username', '$pass', '$first_name', '$last_name', '$usergroup_id', '$department_id')
+						";
+
+						mysqli_query($dbc, $sql);
+
+						if (mysqli_affected_rows($dbc) == 1) {
+							echo "<p>The user was successfully added to the database!</p>";
+							echo "<p>You can add another below.</p>";
+						} else {
+							echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
+						}
+
+				} else {
+					echo "<p>You did not fill out all of the form fields!</p>";
+				} #End if with the fill-check
 				
 			}
 		
@@ -87,6 +105,7 @@
 
 		<?php
 		} else {
+			#all other user groups
 			#error-out
 		}
 

@@ -16,22 +16,22 @@
 			<div class="tablesection">
 				<h3>Users Table</h3>
 				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
-				<a href="users_view.php"><p class="sectionbutton">View All Users</p>
-				<a href="#"><p class="sectionbutton">Edit Employee Records</p>
+				<a href="users_view.php"><p class="sectionbutton">View All Users</p></a>
+				<a href="#"><p class="sectionbutton">Edit Employee Records</p></a>
 			</div>
 
 			<div class="tablesection">
 				<h3>Users Table</h3>
 				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
-				<a href="users_view.php"><p class="sectionbutton">View All Users</p>
-				<a href="#"><p class="sectionbutton">Edit Employee Records</p>
+				<a href="users_view.php"><p class="sectionbutton">View All Users</p></a>
+				<a href="#"><p class="sectionbutton">Edit Employee Records</p></a>
 			</div>
 
 			<div class="tablesection">
 				<h3>Users Table</h3>
 				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
-				<a href="users_view.php"><p class="sectionbutton">View All Users</p>
-				<a href="#"><p class="sectionbutton">Edit Employee Records</p>
+				<a href="users_view.php"><p class="sectionbutton">View All Users</p></a>
+				<a href="#"><p class="sectionbutton">Edit Employee Records</p></a>
 			</div>
 
 <!-- 			<table>
