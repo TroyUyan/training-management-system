@@ -44,7 +44,7 @@
 
 						if (mysqli_affected_rows($dbc) == 1) {
 							echo "<p>The user was successfully added to the database!</p>";
-							echo "<p>You can add another below.</p>";
+							echo "<p>You can add another below, or <a href='users_view.php'>view the users table</a>.</p>";
 						} else {
 							echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
 						}
