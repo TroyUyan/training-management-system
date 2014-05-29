@@ -1,9 +1,17 @@
 <?php
 	$page_title=" | Login";
-	include('inc/header.inc.php');
+	include ('inc/header.inc.php');
 
-	function CheckResults() {
-		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+	public function CheckResults() {
+		# code...
+	}
+
+?>
+
+			<div id="login-aside" class="clear">
+
+			<?php
+				if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 					echo "<form><fieldset>";
 
@@ -59,7 +67,8 @@
 					}
 
 					echo "</fieldset></form>";
-		} else { ?>
+
+				} else { ?>
 					<form method="POST" action="index.php">
 						<fieldset>
 							<h3><strong>Please enter your username and password:</strong></h3>
@@ -74,14 +83,7 @@
 						<a href="help.html" alt="Need help?" class="helpbutton"><strong>&#63;</strong></a>
 					</form>
 				<?php
-		}
-	}
-?>
-
-			<div id="login-aside" class="clear">
-
-			<?php
-				CheckResults();
+				}
 			?>
 				
 			</div> <!-- end login-aside -->
