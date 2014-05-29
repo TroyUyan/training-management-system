@@ -24,8 +24,7 @@
 					!empty($_POST['pass']) &&
 					!empty($_POST['first_name']) &&
 					!empty($_POST['last_name']) &&
-					!empty($_POST['usergroup_id']) &&
-					!empty($_POST['department_id'])
+					!empty($_POST['usergroup_id'])
 					) {
 						$username = $_POST['username'];
 						$pass = $_POST['pass'];
