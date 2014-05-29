@@ -374,7 +374,6 @@ tr:nth-of-type(odd) {
 	border: 1px solid #f9de6b; 
 	box-shadow: 1px 1px 2px #766A57;
 	text-decoration:none;
-/*	text-transform: uppercase;*/
 }
 
 .sectionbutton:hover {
@@ -388,6 +387,24 @@ tr:nth-of-type(odd) {
 	border:1px solid #bad2b9;
 	color:#e8e8e8;
 }
+
+/* admin forms */
+.inputform {
+	width: 40%;
+}
+.inputform label {
+	clear: both;
+	font-size:1.2em;
+	float:left;
+	text-align: left; 
+	width:140px;
+	margin-bottom: 15px;
+}
+
+.inputform input, .inputform select {
+	float: right;
+}
+
 
 /* footer */
 footer {

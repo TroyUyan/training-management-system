@@ -57,14 +57,14 @@
 		
 		?>
 
-			<form method="POST" action="users_add.php">
+			<form method="POST" action="users_add.php" class="inputform">
 				<p>
 					<label>User ID</label>
 					<input type="text" name="user_id" placeholder="AUTO" disabled="1">
 				</p>
 				<p>
 					<label>Username</label>
-					<input type="text" name="username">
+					<input type="text" name="username" value="<?php if (isset($_POST['username'])) { echo $_POST['username']; }?>  ">
 				</p>
 				<p>
 					<label>Password</label>
