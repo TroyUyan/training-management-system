@@ -14,40 +14,23 @@
 			?>
 
 			<div class="tablesection">
-				<h3>Users Table</h3>
-				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
+				<h3>System Users</h3>
 				<a href="users_view.php"><p class="sectionbutton">View All Users</p></a>
+				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
 				<a href="#"><p class="sectionbutton">Edit Employee Records</p></a>
 			</div>
 
 			<div class="tablesection">
-				<h3>Users Table</h3>
-				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
-				<a href="users_view.php"><p class="sectionbutton">View All Users</p></a>
-				<a href="#"><p class="sectionbutton">Edit Employee Records</p></a>
+				<h3>Traning Courses</h3>
+				<a href="#"><p class="sectionbutton">View All Courses</p></a>
+				<a href="#"><p class="sectionbutton">Add New Course</p></a>
 			</div>
 
 			<div class="tablesection">
-				<h3>Users Table</h3>
-				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
-				<a href="users_view.php"><p class="sectionbutton">View All Users</p></a>
-				<a href="#"><p class="sectionbutton">Edit Employee Records</p></a>
+				<h3>Bank Departments</h3>
+				<a href="#"><p class="sectionbutton">View All Departments</p></a>
+				<a href="#"><p class="sectionbutton">Add New Department</p></a>
 			</div>
-
-<!-- 			<table>
-				<tr>
-					<th>Users Table</th>
-				</tr>
-				<tr>
-					<td class="button"><a href="users_add.php">Add New User</td>
-				</tr>
-				<tr>
-					<td class="button"><a href="#">View All Users</a></td>
-				</tr>
-				<tr>
-					<td class="button"><a href="#">Edit Employee Records</a></td>
-				</tr>
-			</table> -->
 
 		<?php
 

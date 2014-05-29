@@ -73,12 +73,12 @@
 						<fieldset>
 							<h3><strong>Please enter your username and password:</strong></h3>
 							<label for="username">Username:</label>
-							<input type="text" id="username" name="username">
+							<input type="text" id="username" name="username" tabindex="1">
 							<br>
 							<label for="pass">Password:</label>
-							<input type="password" id="pass" name="pass"> 
+							<input type="password" id="pass" name="pass" tabindex="2"> 
 							<br>
-							<input type="submit" value="LOGIN" class="button">
+							<input type="submit" value="LOGIN" class="button" tabindex="3">
 						</fieldset>
 						<a href="help.html" alt="Need help?" class="helpbutton"><strong>&#63;</strong></a>
 					</form>
