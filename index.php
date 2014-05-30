@@ -14,19 +14,6 @@
 					$username = $_POST['username'];
 					$pass = $_POST['pass'];
 
-					#old
-					// # Now query the database to see if you get a match for username/password
-					// $sql = "SELECT * FROM users WHERE username='$username' AND pass='$pass'"; 
-					
-					// # debug statement
-					// # echo $sql;
-
-					// # perform the query
-					// $result = mysqli_query($dbc,$sql);
-
-					// # debug statement
-					// #var_dump($result);
-
 					#sql
 					$sql = "SELECT user_id, first_name, last_name, usergroup_id, department_id
 									FROM users WHERE username=? AND pass=?";
@@ -53,19 +40,15 @@
 						mysqli_stmt_bind_result($stmt, $user_id, $first_name, $last_name, $usergroup_id, $department_id);
 						mysqli_stmt_fetch($stmt);
 
+						# put results in session vars
 						$_SESSION['user_id'] = $user_id;
 						$_SESSION['first_name'] = $first_name;
 						$_SESSION['last_name'] = $last_name;
 						$_SESSION['usergroup_id'] = $usergroup_id;
 						$_SESSION['department_id'] = $department_id;
 
-
-						// $rows = mysqli_stmt_fetch($stmt);
-						// $_SESSION['user_id'] = $rows['user_id'];
-						// $_SESSION['first_name'] = $rows['first_name'];
-						// $_SESSION['last_name'] = $rows['last_name'];
-						// $_SESSION['usergroup_id'] = $rows['usergroup_id'];
-						// $_SESSION['department_id'] = $rows['department_id'];
+						# delete the statement
+						mysqli_stmt_close($stmt);
 
 						#debug
 						// echo $_SESSION['user_id'];
