@@ -1,7 +1,8 @@
 		</div> <!-- end clear -->
 		</div> <!-- end content -->	
 
-		<footer class="clear">
+		<div class="clear footerclear"><div>
+		<footer>
 			<div class="wrapper">
 			
 			<p class="copy">&copy; 2014 Greenwell Bank</p>
