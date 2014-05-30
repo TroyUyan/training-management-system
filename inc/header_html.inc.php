@@ -19,6 +19,7 @@
 			<div class="nav">
 				<ul>
 					<li id="home"><a href="index.php" alt="Return to Greenwell Bank Home Page">HOME</a></li>
+					<li><a href="main.php" alt="Return to Greenwell Bank Home Page">MAIN</a></li>
 					<li id="logout"><a href="logout.php" alt="Logout">LOG OUT</a></li>
 				</ul>
 			</div> <!-- end nav -->

@@ -203,6 +203,26 @@ form {
 	font-family: 'Lora', serif;
 }
 
+/* links */
+#content a:link, #content a:active, #content a:visited {
+	color: #222;
+}
+
+#content a:hover {
+	color: #28b41d;
+}
+
+/* form links */
+form fieldset a, form fieldset a:link, form fieldset a:active, form fieldset a:visited {
+	color: #000;
+	text-decoration: none;
+}
+
+form fieldset a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
 label {
 /*	padding:1em; */
 	font-size:1.2em;
@@ -409,7 +429,8 @@ tr:nth-of-type(odd) {
 }
 
 .footerclear {
-margin-bottom:1em;}
+margin-bottom:1em;
+background-color: #fff;}
 
 /* footer */
 footer {
