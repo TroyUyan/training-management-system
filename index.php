@@ -14,47 +14,68 @@
 					$username = $_POST['username'];
 					$pass = $_POST['pass'];
 
-					# test data
-					// echo "<p>We have posted</p>";
-					// echo "$username<br>$pass";
-
-					# Now query the database to see if you get a match for username/password
-					$sql = "SELECT * FROM users WHERE username='$username' AND pass='$pass'"; 
+					#old
+					// # Now query the database to see if you get a match for username/password
+					// $sql = "SELECT * FROM users WHERE username='$username' AND pass='$pass'"; 
 					
-					# debug statement
-					# echo $sql;
+					// # debug statement
+					// # echo $sql;
 
-					# perform the query
-					$result = mysqli_query($dbc,$sql);
+					// # perform the query
+					// $result = mysqli_query($dbc,$sql);
 
-					# debug statement
-					#var_dump($result);
+					// # debug statement
+					// #var_dump($result);
 
-					if (mysqli_num_rows($result) == 1) {
+					#sql
+					$sql = "SELECT user_id, first_name, last_name, usergroup_id, department_id
+									FROM users WHERE username=? AND pass=?";
+
+					#sql prepare
+					$stmt = mysqli_prepare($dbc, $sql);
+
+					#bind parameters
+					mysqli_stmt_bind_param($stmt, 'ss', $username, $pass);
+
+					# query the database
+					mysqli_stmt_execute($stmt);
+
+					# store result, needed for SELECTS
+					mysqli_stmt_store_result($stmt);
+
+					if (mysqli_stmt_num_rows($stmt) == 1) {
 						# username and password match
 						# Now set a session variable
 						$_SESSION['loggedin'] = 1;
 						$_SESSION['username'] = $username;
 
 						# Get rows
-						$rows = mysqli_fetch_array($result);
+						mysqli_stmt_bind_result($stmt, $user_id, $first_name, $last_name, $usergroup_id, $department_id);
+						mysqli_stmt_fetch($stmt);
 
-						$_SESSION['user_id'] = $rows['user_id'];
-						$_SESSION['first_name'] = $rows['first_name'];
-						$_SESSION['last_name'] = $rows['last_name'];
-						$_SESSION['usergroup_id'] = $rows['usergroup_id'];
-						$_SESSION['department_id'] = $rows['department_id'];
+						$_SESSION['user_id'] = $user_id;
+						$_SESSION['first_name'] = $first_name;
+						$_SESSION['last_name'] = $last_name;
+						$_SESSION['usergroup_id'] = $usergroup_id;
+						$_SESSION['department_id'] = $department_id;
 
+
+						// $rows = mysqli_stmt_fetch($stmt);
+						// $_SESSION['user_id'] = $rows['user_id'];
+						// $_SESSION['first_name'] = $rows['first_name'];
+						// $_SESSION['last_name'] = $rows['last_name'];
+						// $_SESSION['usergroup_id'] = $rows['usergroup_id'];
+						// $_SESSION['department_id'] = $rows['department_id'];
+
+						#debug
 						// echo $_SESSION['user_id'];
 						// echo $_SESSION['first_name'];
 						// echo $_SESSION['last_name'];
 						// echo $_SESSION['usergroup_id'];
 						// echo $_SESSION['department_id'];
 
+						#redirect
 						header('location:/main.php');
-
-						echo "<p>You are now logged in!</p>";
-						echo '<br><p><a href="main.php" class="button">Enter System</a></p>';
 
 					} else {
 						echo "<p>I'm sorry but your login info was not correct.</p>";
