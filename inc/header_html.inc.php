@@ -9,8 +9,8 @@
 	<link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div id="wrapper">	
 		<header>
+			<div class="wrapper">
 			<a href="login.php"><img src="img/clearlogo.png" alt="Greenwell Bank logo" class="logo"></a>
 			<h1>Training Tracking Management System</h1>
 			<div id="motto">
@@ -22,6 +22,7 @@
 					<li id="logout"><a href="logout.php" alt="Logout">LOG OUT</a></li>
 				</ul>
 			</div> <!-- end nav -->
+			</div> <!-- end wrapper -->
 		</header>
 
 		<div id="content" >
