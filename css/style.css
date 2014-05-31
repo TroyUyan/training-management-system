@@ -415,12 +415,26 @@ tr:nth-of-type(odd) {
 .inputform {
 	width: 40%;
 }
+
 .inputform label {
 	clear: both;
 	font-size:1.2em;
 	float:left;
 	text-align: left; 
 	width:140px;
+	margin-bottom: 15px;
+}
+
+.departmentform {
+	width: 60%;
+}
+
+.departmentform label {
+	clear: both;
+	font-size:1.2em;
+	float:left;
+	text-align: left; 
+	width:240px;
 	margin-bottom: 15px;
 }
 

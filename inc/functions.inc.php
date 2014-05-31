@@ -63,19 +63,19 @@
               mysqli_query($dbc, $sql);
 
               if (mysqli_affected_rows($dbc) == 1) {
-                  echo "<p>The user information was successfully updated in the database!</p>";
+                  echo "<p><img src='img/ico_true.png'> The user information was successfully updated in the database!</p>";
               } else {
-                  echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
+                  echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
               }
 
             } else {
-              echo "<p>That username is already in use! Please pick another.</p>";
+              echo "<p><img src='img/ico_false.png'> That username is already in use! Please pick another.</p>";
             }
                 
 
 
         } else {
-          echo "<p>You did not fill out all of the form fields!</p>";
+          echo "<p><img src='img/ico_false.png'> You did not fill out all of the form fields!</p>";
         } #End if with the fill-check
         
       } #End if-posted
@@ -125,17 +125,33 @@
             <p>
               <label>Usergroup</label>
               <select name="usergroup_id">
-                <option value="1" <?php if($usergroup_id == 1){echo 'selected="1"';}?>>Employee</option>
-                <option value="2" <?php if($usergroup_id == 2){echo 'selected="1"';}?>>Coordinator</option>
-                <option value="3" <?php if($usergroup_id == 3){echo 'selected="1"';}?>>Viewer</option>
-                <option value="4" <?php if($usergroup_id == 4){echo 'selected="1"';}?>>Admin</option>
+                <?php #enter php again
+
+                  # query for usergroup list
+                  $sql = "SELECT * FROM usergroups";
+                  $result = mysqli_query($dbc, $sql);
+
+                  # display options based on usergroup table contents
+                  while ($rows = mysqli_fetch_array($result)) {
+                    echo "<option value='{$rows['usergroup_id']}'>{$rows['usergroup_name']}</option>\n";
+                  }
+                // exit php ?>
               </select>
             </p>
             <p>
               <label>Department</label>
               <select name="department_id">
-                <option value="1" <?php if($department_id == 1){echo 'selected="1"';}?>>Department One</option>
-                <option value="0" <?php if($department_id == 0){echo 'selected="1"';}?>>-- NO DEPARTMENT --</option>
+                <?php #enter php again
+
+                # query for department list
+                $sql = "SELECT * FROM departments";
+                $result = mysqli_query($dbc, $sql);
+
+                # display options based on dept. table contents
+                while ($rows = mysqli_fetch_array($result)) {
+                  echo "<option value='{$rows['department_id']}'>{$rows['department_name']}</option>\n";
+                }
+                // exit php ?>
               </select>
             </p>
             <input type="submit" value="Update User Information" class="button">
@@ -171,9 +187,9 @@
 
     # check results
     if (mysqli_affected_rows($dbc) == 1) {
-      echo "<p>The user successfully marked as in-active in the database!</p>";
+      echo "<p><img src='img/ico_true.png'> The user successfully marked as in-active in the database!</p>";
     } else {
-      echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
+      echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
     }
   }
 
