@@ -26,6 +26,7 @@
 					!empty($_POST['last_name']) &&
 					!empty($_POST['usergroup_id'])
 					) {
+
 						$username = $_POST['username'];
 						$pass = $_POST['pass'];
 						$first_name = $_POST['first_name'];
@@ -33,20 +34,29 @@
 						$usergroup_id = $_POST['usergroup_id'];
 						$department_id = $_POST['department_id'];
 
-						$sql="
-						INSERT INTO gwb_training.users
-						(user_id, username, pass, first_name, last_name, usergroup_id, department_id)
-						VALUES (NULL, '$username', '$pass', '$first_name', '$last_name', '$usergroup_id', '$department_id')
-						";
+						# check if username exsists
+	          $sql = "SELECT username FROM users WHERE username = $username;";
+	          mysqli_query($dbc, $sql);
 
-						mysqli_query($dbc, $sql);
+	          if (mysqli_field_count($dbc) == 0) {
+	            
+	            $sql="INSERT INTO gwb_training.users (user_id, username, pass, first_name, last_name, usergroup_id, department_id)
+										VALUES (NULL, '$username', '$pass', '$first_name', '$last_name', '$usergroup_id', '$department_id')
+									 ";
 
-						if (mysqli_affected_rows($dbc) == 1) {
-							echo "<p>The user was successfully added to the database!</p>";
-							echo "<p>You can add another below, or <a href='users_view.php'>view the users table</a>.</p>";
-						} else {
-							echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
-						}
+	            mysqli_query($dbc, $sql);
+
+	            if (mysqli_affected_rows($dbc) == 1) {
+	                echo "<p>The user was successfully added to the database!</p>";
+									echo "<p>You can add another below, or <a href='users_view.php'>view the users table</a>.</p>";
+	            } else {
+	                echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
+	            }
+
+	          } else {
+	            echo "<p>That username is already in use! Please pick another.</p>";
+	          }
+
 
 				} else {
 					echo "<p>You did not fill out all of the form fields!</p>";

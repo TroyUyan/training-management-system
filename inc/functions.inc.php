@@ -8,12 +8,12 @@
 
       echo "<table>\n";
       echo '<tr>
-      		<th><a href="?sort=#">User ID</a></th>
-      		<th><a href="?sort=#">Username</a></th>
-      		<th><a href="?sort=#">First Name</a></th>
-      		<th><a href="?sort=#">Last Name</a></th>
-      		<th><a href="?sort=#">Group ID</a></th>
-      		<th><a href="?sort=#">Dept. ID</a></th>
+          		<th><a href="?sort=#">User ID</a></th>
+          		<th><a href="?sort=#">Username</a></th>
+          		<th><a href="?sort=#">First Name</a></th>
+          		<th><a href="?sort=#">Last Name</a></th>
+          		<th><a href="?sort=#">Group ID</a></th>
+          		<th><a href="?sort=#">Dept. ID</a></th>
               <th>Actions</th>
       	  </tr>' . "\n";
       # loop through each record in the users table
@@ -50,17 +50,29 @@
             $usergroup_id = $_POST['usergroup_id'];
             $department_id = $_POST['department_id'];
 
-            $sql="UPDATE users 
-                  SET username = '{$_POST['username']}', pass = '{$_POST['pass']}', first_name = '{$_POST['first_name']}', last_name = '{$_POST['last_name']}', usergroup_id = '{$_POST['usergroup_id']}', department_id = '{$_POST['department_id']}'
-                  WHERE user_id = $user_id";
-
+            # check if username exsists
+            $sql = "SELECT username FROM users WHERE username = $username;";
             mysqli_query($dbc, $sql);
 
-            if (mysqli_affected_rows($dbc) == 1) {
-              echo "<p>The user information was successfully updated in the database!</p>";
+            if (mysqli_field_count($dbc) == 0) {
+              
+              $sql="UPDATE users 
+                    SET username = '{$_POST['username']}', pass = '{$_POST['pass']}', first_name = '{$_POST['first_name']}', last_name = '{$_POST['last_name']}', usergroup_id = '{$_POST['usergroup_id']}', department_id = '{$_POST['department_id']}'
+                    WHERE user_id = $user_id";
+
+              mysqli_query($dbc, $sql);
+
+              if (mysqli_affected_rows($dbc) == 1) {
+                  echo "<p>The user information was successfully updated in the database!</p>";
+              } else {
+                  echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
+              }
+
             } else {
-              echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
+              echo "<p>That username is already in use! Please pick another.</p>";
             }
+                
+
 
         } else {
           echo "<p>You did not fill out all of the form fields!</p>";
