@@ -12,6 +12,7 @@
 			#Admin
       echo "<h3>View Users Table</h3>";
       echo '<p><a href="users_add.php"> <img src="img/ico_add"> Create New User</a></p>';
+      echo '<div class="clear"></div>';
       admin_draw_users_view($dbc);
 
 		} else {
