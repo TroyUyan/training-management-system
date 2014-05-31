@@ -177,5 +177,27 @@
     }
   }
 
+  function loggedin($page_title) {
+    if ($page_title==" | Login") {
+      # on index.php
+    } elseif ($_SESSION['loggedin'] == 0) { ?>
+
+      <script>
+        alert("Warning!\n\nYou need to log in to access this page.\n\nYou will be redirected.");
+        window.location.href='index.php';
+      </script> 
+
+    <?php }
+  }
+
+  function permission() {
+  ?>
+    <script>
+      alert("Warning!\n\nYou do not have permission to view this page!\n\nYou will be redirected.");
+      window.location.href='main.php';
+    </script>  
+  <?php
+  }
+
 
 ?>

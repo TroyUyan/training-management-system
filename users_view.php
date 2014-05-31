@@ -16,7 +16,7 @@
       admin_draw_users_view($dbc);
 
 		} else {
-			#error-out
+			permission();
 		}
 
 	?>

@@ -114,7 +114,7 @@
 		<?php
 		} else {
 			#all other user groups
-			#error-out
+			permission();
 		}
 
 	?>
