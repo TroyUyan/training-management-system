@@ -33,7 +33,40 @@
 	}
 
   function edit_user($dbc,$user_id){
-          echo "<h2>Editing Record: $user_id</h2>";
+          echo "<h2>Editing User ID: $user_id</h2>";
+
+      if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+        if(!empty($_POST['username']) &&
+          !empty($_POST['pass']) &&
+          !empty($_POST['first_name']) &&
+          !empty($_POST['last_name']) &&
+          !empty($_POST['usergroup_id'])
+          ) {
+            $username = $_POST['username'];
+            $pass = $_POST['pass'];
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $usergroup_id = $_POST['usergroup_id'];
+            $department_id = $_POST['department_id'];
+
+            $sql="UPDATE users 
+                  SET username = '{$_POST['username']}', pass = '{$_POST['pass']}', first_name = '{$_POST['first_name']}', last_name = '{$_POST['last_name']}', usergroup_id = '{$_POST['usergroup_id']}', department_id = '{$_POST['department_id']}'
+                  WHERE user_id = $user_id";
+
+            mysqli_query($dbc, $sql);
+
+            if (mysqli_affected_rows($dbc) == 1) {
+              echo "<p>The user information was successfully updated in the database!</p>";
+            } else {
+              echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
+            }
+
+        } else {
+          echo "<p>You did not fill out all of the form fields!</p>";
+        } #End if with the fill-check
+        
+      } #End if-posted
 
           # generate SQL statement that will be used to get the complete row of data from the students table
           $sql = "SELECT * FROM users WHERE user_id=$user_id LIMIT 1";
@@ -56,7 +89,7 @@
   	?><!-- end PHP script temporarily -->
           <!-- Display HTML form -->
 
-          <form method="POST" action="?update_user=<?php echo $user_id;?>" class="inputform clear">
+          <form method="POST" action="?edit_user=<?php echo $user_id;?>" class="inputform clear">
             <p>
               <label>User ID</label>
               <input type="text" name="user_id" value="<?php echo $user_id;?>" disabled="1">
@@ -109,35 +142,6 @@
     # pass in $dbc and id from the URL
     edit_user($dbc, $_GET['edit_user']);
   }
-
-	if (isset($_GET['update_user'])) { 
-
-	  #handle the ?update
-
-	  # generate SQL statement
-	  $sql = "UPDATE users 
-            SET first_name='{$_POST['first_name']}', last_name='{$_POST['last_name']}'
-            WHERE user_id={$_POST['user_id']}";
-	  # query the database using the SQL
-	  $result = mysqli_query($dbc,$sql);
-
-	  # if the update was ok then display all student data
-	  if($result){
-
-	          # generate the SQL
-	          $sql = "SELECT * FROM users";
-	          # query the database
-	          $result = mysqli_query($dbc, $sql);
-	          # call the render_data() function to display all of the student data in a table
-	          admin_draw_users_view($dbc);
-
-	  } else {
-
-	          # something didn't go well when trying to update the student record
-	          echo "ruh roh....";
-
-	  }
-	}
 
 
 ?>
