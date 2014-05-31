@@ -1,0 +1,39 @@
+need departments list
+^ 5 dept names and desc
+
+need courses list
+^ 7-10 courses per dept
+
+add icons for successful post or not!
+
+departments table fills the edit and create user forms by reading the data from table for id and name
+^also in the courses table when edit or creating a course and selecting which department it belongs to
+
+fill departments and courses data with 2-3 each
+create crud for courses and departments
+finish filling courses and departments with own system
+
+incorporate new dyn_nav branch after have created all users,depts,courses pages.
+^ Main links link to _view pages that have +CreateNew options.
+
+
+export db to git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+indy 250 tomorrow ??
