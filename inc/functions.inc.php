@@ -26,7 +26,7 @@
               	<td>{$row['last_name']}</td>
               	<td>{$row['usergroup_id']}</td>
               	<td>{$row['department_id']}</td>
-                  <td><a href=\"?edit_user={$row['user_id']}\"><img src='img/ico_edit.png' alt='Edit' title='Edit'></a> <a href=\"?delete_user={$row['user_id']}\" onclick=\"return confirm('Delete User #{$row['user_id']}?');\"><img src='img/ico_x.png' alt='Delete' title='Delete'></a></td>\n";
+                  <td><a href=\"?edit_user={$row['user_id']}\"><img src='img/ico_edit.png' alt='Edit' title='Edit'></a> &nbsp;<a href=\"?delete_user={$row['user_id']}\" onclick=\"return confirm('Delete User #{$row['user_id']}?');\"><img src='img/ico_x.png' alt='Delete' title='Delete'></a></td>\n";
               echo "</tr>\n";
       } # end of while loop
       echo "</table>\n";
@@ -141,6 +141,24 @@
     # handle the ?edit
     # pass in $dbc and id from the URL
     edit_user($dbc, $_GET['edit_user']);
+  }
+
+  if (isset($_GET['delete_user'])) {
+
+    # handle ?delete_user=
+    # write sql
+    $sql="DELETE FROM users
+          WHERE user_id = {$_GET['delete_user']}";
+
+    # perform Q
+    mysqli_query($dbc, $sql);
+
+    # check results
+    if (mysqli_affected_rows($dbc) == 1) {
+      echo "<p>The user successfully deleted from the database!</p>";
+    } else {
+      echo "<p>Something has gone wrong, here is the SQL:<br>$sql</p>";
+    }
   }
 
 
