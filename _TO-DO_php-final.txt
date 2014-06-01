@@ -1,10 +1,8 @@
-need departments list
-^ 5 dept names and desc
-
+courses CRUD
+---
 need courses list
 ^ 7-10 courses per dept
 
-add icons for successful post or not!
 
 departments table fills the edit and create user forms by reading the data from table for id and name
 ^also in the courses table when edit or creating a course and selecting which department it belongs to
