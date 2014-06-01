@@ -16,24 +16,7 @@ finish filling courses and departments with own system
 incorporate new dyn_nav branch after have created all users,depts,courses pages.
 ^ Main links link to _view pages that have +CreateNew options.
 
-
-export db to git
-
+sort by tableheader link functionality in all _view.php pages
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-indy 250 tomorrow ??
+export db to git after all 5 tables filled with stock data

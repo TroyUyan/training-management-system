@@ -10,10 +10,10 @@
 		if ($_SESSION['usergroup_id'] == 4) {
 
 			#Admin
-      echo "<h3>View Users Table</h3>";
-      echo '<p><a href="users_add.php"> <img src="img/ico_add"> Create New User</a></p>';
+      echo "<h3>View Departments Table</h3>";
+      echo '<p><a href="department_add.php"> <img src="img/ico_add"> Create New Department</a></p>';
       echo '<div class="clear"></div>';
-      admin_draw_users_view($dbc);
+      admin_draw_departments_view($dbc);
 
 		} else {
 			permission();

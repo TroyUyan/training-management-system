@@ -22,14 +22,14 @@
 
 			<div class="tablesection">
 				<h3>Traning Courses</h3>
-				<a href="#"><p class="sectionbutton">View All Courses</p></a>
-				<a href="#"><p class="sectionbutton">Add New Course</p></a>
+				<a href="courses_add.php"><p class="sectionbutton">View All Courses</p></a>
+				<a href="courses_view.php"><p class="sectionbutton">Add New Course</p></a>
 			</div>
 
 			<div class="tablesection">
 				<h3>Bank Departments</h3>
-				<a href="#"><p class="sectionbutton">View All Departments</p></a>
-				<a href="#"><p class="sectionbutton">Add New Department</p></a>
+				<a href="department_view.php"><p class="sectionbutton">View All Departments</p></a>
+				<a href="department_add.php"><p class="sectionbutton">Add New Department</p></a>
 			</div>
 
 		<?php

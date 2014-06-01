@@ -4,7 +4,7 @@
 ?>
 
 	<h2>Training Tracking Management System</h2>
-	<h3>Add User</h3>
+	<h3>Add Department</h3>
 
 	<?php
 		if ($_SESSION['usergroup_id'] == 4) {
@@ -37,7 +37,7 @@
 
 	            if (mysqli_affected_rows($dbc) == 1) {
 	                echo "<p><img src='img/ico_true.png'> The department was successfully added to the database!</p>";
-									echo "<p>You can add another below, or <a href='departments_view.php'>view the departments table</a>.</p>";
+									echo "<p>You can add another below, or <a href='department_view.php'>view the departments table</a>.</p>";
 	            } else {
 	                echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
 	            }

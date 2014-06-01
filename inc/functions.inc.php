@@ -1,5 +1,7 @@
 <?php
 
+  /* user table functions */
+
 	function admin_draw_users_view($dbc){
 
 			$sql="SELECT * FROM gwb_training.users WHERE active = 1";
@@ -33,7 +35,7 @@
 	}
 
   function edit_user($dbc,$user_id){
-          echo "<h2>Editing User ID: $user_id</h2>";
+      echo "<h2>Editing User ID: $user_id</h2>";
 
       if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
@@ -161,9 +163,6 @@
   	<?php # resume PHP script
   } # end of edit_data function
 
-
-
-
   if (isset($_GET['edit_user'])) {
 
     # handle the ?edit
@@ -192,6 +191,156 @@
       echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
     }
   }
+
+
+  /* department table functions */
+
+  function admin_draw_departments_view($dbc){
+
+      $sql="SELECT * FROM gwb_training.departments";
+
+      $result = mysqli_query($dbc, $sql);
+
+      echo "<table>\n";
+      echo '<tr>
+              <th><a href="?sort=#">Dept. ID</a></th>
+              <th><a href="?sort=#">Dept. Name</a></th>
+              <th><a href="?sort=#">Required Courses</a></th>
+              <th>Actions</th>
+          </tr>' . "\n";
+      # loop through each record in the users table
+      while ($row = mysqli_fetch_array($result)){
+              echo "<tr class=\"center\">\n";
+              echo "
+                <td>{$row['department_id']}</td>
+                <td>{$row['department_name']}</td>
+                <td>{$row['required_courses']}</td>
+                <td><a href=\"?edit_department={$row['department_id']}\"><img src='img/ico_edit.png' alt='Edit' title='Edit'></a> &nbsp;<a href=\"?delete_department={$row['department_id']}\" onclick=\"return confirm('Delete Department #{$row['department_id']}?');\"><img src='img/ico_x.png' alt='Delete' title='Delete'></a></td>\n";
+              echo "</tr>\n";
+      } # end of while loop
+      echo "</table>\n";
+  }
+
+  function edit_department($dbc,$department_id){
+      echo "<h2>Editing Department ID: $department_id</h2>";
+
+      if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+        if(!empty($_POST['username']) &&
+          !empty($_POST['pass']) &&
+          !empty($_POST['first_name']) &&
+          !empty($_POST['last_name']) &&
+          !empty($_POST['usergroup_id'])
+          ) {
+            $username = $_POST['username'];
+            $pass = $_POST['pass'];
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $usergroup_id = $_POST['usergroup_id'];
+            $department_id = $_POST['department_id'];
+
+            # check if username exsists
+            $sql = "SELECT username FROM users WHERE username = $username;";
+            mysqli_query($dbc, $sql);
+
+            if (mysqli_field_count($dbc) == 0) {
+              
+              $sql="UPDATE users 
+                    SET username = '{$_POST['username']}', pass = '{$_POST['pass']}', first_name = '{$_POST['first_name']}', last_name = '{$_POST['last_name']}', usergroup_id = '{$_POST['usergroup_id']}', department_id = '{$_POST['department_id']}'
+                    WHERE user_id = $user_id";
+
+              mysqli_query($dbc, $sql);
+
+              if (mysqli_affected_rows($dbc) == 1) {
+                  echo "<p><img src='img/ico_true.png'> The user information was successfully updated in the database!</p>";
+              } else {
+                  echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
+              }
+
+            } else {
+              echo "<p><img src='img/ico_false.png'> That username is already in use! Please pick another.</p>";
+            }
+                
+
+
+        } else {
+          echo "<p><img src='img/ico_false.png'> You did not fill out all of the form fields!</p>";
+        } #End if with the fill-check
+        
+      } #End if-posted
+
+          # generate SQL statement that will be used to get the complete row of data from the students table
+          $sql = "SELECT * FROM deparments WHERE department_id=$department_id LIMIT 1";
+
+          # get the array of data for the student_id being passed into function
+          $result = mysqli_query($dbc,$sql);
+
+          # now get the row of data from the array
+          $row = mysqli_fetch_array($result);
+
+          # assign the form variables to some variables
+          # this will make it easier to use the values in the HTML form
+          $department_id = $row['department_id'];
+          $department_name = $row['department_name'];
+          $required_courses = $row['required_courses'];
+          $department_desc = $row['department_desc'];
+    ?><!-- end PHP script temporarily -->
+          <!-- Display HTML form -->
+      <form method="POST" action="?edit_department=<?php echo $department_id;?>" class="inputform departmentform">
+        <p>
+          <label>Department ID</label>
+          <input type="number" name="department_id" value="<?php echo $department_id;?>">
+        </p>
+        <p>
+          <label>Department Name</label>
+          <input type="text" name="department_name" value="<?php echo $department_name;?>">
+        </p>
+        <p>
+          <label>Required Courses</label>
+          <input type="number" name="required_courses" value="<?php echo $required_courses;?>">
+        </p>
+        <p>
+          <label>Department Description</label>
+          <textarea name="department_desc" rows="4" cols="50"><?php echo $department_desc;?></textarea>
+        </p>
+        <input type="submit" value="Update Department Information" class="button">
+      </form>
+      <div class="clear"></div>
+
+    <?php # resume PHP script
+  } # end of edit_data function
+
+  if (isset($_GET['edit_department'])) {
+
+    # handle the ?edit
+    # pass in $dbc and id from the URL
+    edit_department($dbc, $_GET['edit_department']);
+  }
+
+  if (isset($_GET['delete_department'])) {
+
+    # handle ?delete_user=
+    # write sql
+    // $sql="DELETE FROM users
+    //       WHERE user_id = {$_GET['delete_user']}";
+
+    $sql="DELETE FROM gwb_training.departments 
+          WHERE department_id = {$_GET['delete_department']}";
+
+    # perform Q
+    mysqli_query($dbc, $sql);
+
+    # check results
+    if (mysqli_affected_rows($dbc) == 1) {
+      echo "<p><img src='img/ico_true.png'> The department was successfully deleted from the database!</p>";
+    } else {
+      echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
+    }
+  }
+
+
+
+  /* Login and permission check */
 
   function loggedin($page_title) {
     if ($page_title==" | Login") {
