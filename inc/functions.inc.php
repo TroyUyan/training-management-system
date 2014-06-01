@@ -226,39 +226,34 @@
 
       if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-        if(!empty($_POST['username']) &&
-          !empty($_POST['pass']) &&
-          !empty($_POST['first_name']) &&
-          !empty($_POST['last_name']) &&
-          !empty($_POST['usergroup_id'])
+        if(!empty($_POST['department_name']) &&
+          !empty($_POST['required_courses']) &&
+          !empty($_POST['department_desc'])
           ) {
-            $username = $_POST['username'];
-            $pass = $_POST['pass'];
-            $first_name = $_POST['first_name'];
-            $last_name = $_POST['last_name'];
-            $usergroup_id = $_POST['usergroup_id'];
-            $department_id = $_POST['department_id'];
+            $department_name = $_POST['department_name'];
+            $required_courses = $_POST['required_courses'];
+            $department_desc = $_POST['department_desc'];
 
-            # check if username exsists
-            $sql = "SELECT username FROM users WHERE username = $username;";
-            mysqli_query($dbc, $sql);
+            # check if id matches
+            $sql = "SELECT department_id FROM departments WHERE department_id = $department_id";
+            $result = mysqli_query($dbc, $sql);
 
-            if (mysqli_field_count($dbc) == 0) {
+            if (mysqli_num_rows($result) == 1) {
               
-              $sql="UPDATE users 
-                    SET username = '{$_POST['username']}', pass = '{$_POST['pass']}', first_name = '{$_POST['first_name']}', last_name = '{$_POST['last_name']}', usergroup_id = '{$_POST['usergroup_id']}', department_id = '{$_POST['department_id']}'
-                    WHERE user_id = $user_id";
+              $sql="UPDATE departments 
+                    SET department_name = '$department_name', required_courses = '$required_courses', department_desc = '$department_desc'
+                    WHERE department_id = $department_id";
 
-              mysqli_query($dbc, $sql);
+             mysqli_query($dbc, $sql);
 
               if (mysqli_affected_rows($dbc) == 1) {
-                  echo "<p><img src='img/ico_true.png'> The user information was successfully updated in the database!</p>";
+                  echo "<p><img src='img/ico_true.png'> The department information was successfully updated!</p>";
               } else {
                   echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
               }
 
             } else {
-              echo "<p><img src='img/ico_false.png'> That username is already in use! Please pick another.</p>";
+              echo "<p><img src='img/ico_false.png'> That department ID does not match the one you are editing!</p>";
             }
                 
 
@@ -270,7 +265,8 @@
       } #End if-posted
 
           # generate SQL statement that will be used to get the complete row of data from the students table
-          $sql = "SELECT * FROM deparments WHERE department_id=$department_id LIMIT 1";
+          $sql = "SELECT * FROM departments WHERE department_id=$department_id LIMIT 1";
+          echo "$sql";
 
           # get the array of data for the student_id being passed into function
           $result = mysqli_query($dbc,$sql);
@@ -289,7 +285,7 @@
       <form method="POST" action="?edit_department=<?php echo $department_id;?>" class="inputform departmentform">
         <p>
           <label>Department ID</label>
-          <input type="number" name="department_id" value="<?php echo $department_id;?>">
+          <input type="number" name="department_id" value="<?php echo $department_id;?>" disabled="1">
         </p>
         <p>
           <label>Department Name</label>

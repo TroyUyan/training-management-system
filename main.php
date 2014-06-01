@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="tablesection">
-				<h3>Traning Courses</h3>
+				<h3>Training Courses</h3>
 				<a href="courses_add.php"><p class="sectionbutton">View All Courses</p></a>
 				<a href="courses_view.php"><p class="sectionbutton">Add New Course</p></a>
 			</div>
