@@ -3,6 +3,8 @@ courses CRUD
 need courses list
 ^ 7-10 courses per dept
 
+Course schedule for employees, can view records or view upcoming courses for classes they havent taken yet.
+
 
 departments table fills the edit and create user forms by reading the data from table for id and name
 ^also in the courses table when edit or creating a course and selecting which department it belongs to
