@@ -24,7 +24,7 @@
 						$required_courses = $_POST['required_courses'];
 						$department_desc = $_POST['department_desc'];
 
-						# check if id exsists
+						# check if id exists
 	          $sql = "SELECT department_id FROM departments WHERE department_id = $department_id";
 	          $result = mysqli_query($dbc, $sql);
 

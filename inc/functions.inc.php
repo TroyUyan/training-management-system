@@ -266,7 +266,7 @@
 
           # generate SQL statement that will be used to get the complete row of data from the students table
           $sql = "SELECT * FROM departments WHERE department_id=$department_id LIMIT 1";
-          echo "$sql";
+          # echo "$sql";
 
           # get the array of data for the student_id being passed into function
           $result = mysqli_query($dbc,$sql);
