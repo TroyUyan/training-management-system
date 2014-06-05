@@ -20,3 +20,12 @@ sort by tableheader link functionality in all _view.php pages
 
 
 export db to git after all 5 tables filled with stock data
+
+
+logo in the nav links to index when not logged in and main when logged in
+
+view users needs a view inactive users or view users table with inactive users
+
+departments_page instead of department_ ;; make everything referecing a section plural
+users already is, change dept and make courses like this
+
