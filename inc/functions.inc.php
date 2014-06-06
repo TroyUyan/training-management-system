@@ -341,7 +341,9 @@
   function loggedin($page_title) {
     if ($page_title==" | Login") {
       # on index.php
-    } elseif ($_SESSION['loggedin'] == 0) { ?>
+    } elseif ($page_title==" | Help") {
+	  # on help.php
+	} elseif ($_SESSION['loggedin'] == 0) { ?>
 
       <script>
         alert("Warning!\n\nYou need to log in to access this page.\n\nYou will be redirected.");

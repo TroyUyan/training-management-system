@@ -79,7 +79,7 @@
 							<br>
 							<input type="submit" value="LOGIN" class="button" tabindex="3">
 						</fieldset>
-						<a href="help.html" alt="Need help?" class="helpbutton"><strong>&#63;</strong></a>
+						<a href="help.php" alt="Need help?" class="helpbutton"><strong>&#63;</strong></a>
 					</form>
 				<?php
 				}
