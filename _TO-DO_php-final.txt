@@ -3,6 +3,10 @@ courses CRUD
 need courses list
 ^ 7-10 courses per dept
 
+courses_view is divided by departments sorted by department ID
+query in query to compare IDs, table joins? 
+
+
 Course schedule for employees, can view records or view upcoming courses for classes they havent taken yet.
 
 
