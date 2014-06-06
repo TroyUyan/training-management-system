@@ -37,7 +37,7 @@
 
 	            if (mysqli_affected_rows($dbc) == 1) {
 	                echo "<p><img src='img/ico_true.png'> The department was successfully added to the database!</p>";
-									echo "<p>You can add another below, or <a href='department_view.php'>view the departments table</a>.</p>";
+									echo "<p>You can add another below, or <a href='departments_view.php'>view the departments table</a>.</p>";
 	            } else {
 	                echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
 	            }
@@ -55,7 +55,7 @@
 		
 		?>
 
-			<form method="POST" action="department_add.php" class="inputform departmentform">
+			<form method="POST" action="departments_add.php" class="inputform departmentform">
 				<p>
 					<label>Department ID</label>
 					<input type="number" name="department_id" value="<?php if(isset($_POST['department_id'])){echo $_POST['department_id'];}?>">

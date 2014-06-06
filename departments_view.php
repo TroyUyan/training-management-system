@@ -11,7 +11,7 @@
 
 			#Admin
       echo "<h3>View Departments Table</h3>";
-      echo '<p><a href="department_add.php"> <img src="img/ico_add"> Create New Department</a></p>';
+      echo '<p><a href="departments_add.php"> <img src="img/ico_add"> Create New Department</a></p>';
       echo '<div class="clear"></div>';
       admin_draw_departments_view($dbc);
 
