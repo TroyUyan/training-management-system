@@ -8,6 +8,7 @@ query in query to compare IDs, table joins?
 
 
 Course schedule for employees, can view records or view upcoming courses for classes they havent taken yet.
+^ Randomly generated dates
 
 
 departments table fills the edit and create user forms by reading the data from table for id and name
@@ -32,4 +33,8 @@ view users needs a view inactive users or view users table with inactive users
 
 departments_page instead of department_ ;; make everything referecing a section plural
 users already is, change dept and make courses like this
+
+help to-add:
+passwords are case sensitive
+user or pass was not correct
 

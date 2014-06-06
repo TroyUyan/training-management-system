@@ -61,10 +61,11 @@
 						header('location:/main.php');
 
 					} else {
-						echo "<p>I'm sorry but your login info was not correct.</p>";
-						echo "<p><a href=\"index.php\">Go back</a> and try again.</p>";
+						echo "<p>Your username or password was not correct.</p>";
+						echo '<p><br><a href="index.php" class="button">Try Again</a></p><br>';
 					}
 
+					echo '<a href="help.php" title="Need Help?" alt="Need help?" class="helpbutton"><strong>&#63;</strong></a>';
 					echo "</fieldset></form>";
 
 				} else { ?>
