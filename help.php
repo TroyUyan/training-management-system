@@ -1,5 +1,5 @@
 <?php
-	$page_title=" | Help";
+	$page_title="Help";
 	include ('inc/header.inc.php');
 ?>
 

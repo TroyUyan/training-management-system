@@ -341,7 +341,7 @@
   function loggedin($page_title) {
     if ($page_title==" | Login") {
       # on index.php
-    } elseif ($page_title==" | Help") {
+    } elseif ($page_title=="Help") {
 	  # on help.php
 	} elseif ($_SESSION['loggedin'] == 0) { ?>
 
