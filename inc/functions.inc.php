@@ -10,12 +10,12 @@
 
       echo "<table>\n";
       echo '<tr>
-          		<th><a href="?sort=#">User ID</a></th>
-          		<th><a href="?sort=#">Username</a></th>
-          		<th><a href="?sort=#">First Name</a></th>
-          		<th><a href="?sort=#">Last Name</a></th>
-          		<th><a href="?sort=#">Group ID</a></th>
-          		<th><a href="?sort=#">Dept. ID</a></th>
+          		<th>User ID</th>
+          		<th>Username</th>
+          		<th>First Name</th>
+          		<th>Last Name</th>
+          		<th>Group ID</th>
+          		<th>Dept. ID</th>
               <th>Actions</th>
       	  </tr>' . "\n";
       # loop through each record in the users table
@@ -203,9 +203,9 @@
 
       echo "<table>\n";
       echo '<tr>
-              <th><a href="?sort=#">Dept. ID</a></th>
-              <th><a href="?sort=#">Dept. Name</a></th>
-              <th><a href="?sort=#">Required Courses</a></th>
+              <th>Dept. ID</th>
+              <th>Dept. Name</th>
+              <th>Required Courses</th>
               <th>Actions</th>
           </tr>' . "\n";
       # loop through each record in the users table
@@ -285,7 +285,7 @@
       <form method="POST" action="?edit_department=<?php echo $department_id;?>" class="inputform departmentform">
         <p>
           <label>Department ID</label>
-          <input type="number" name="department_id" value="<?php echo $department_id;?>" disabled="1">
+          <input type="text" name="department_id" value="<?php echo $department_id;?>" disabled="1">
         </p>
         <p>
           <label>Department Name</label>
@@ -293,7 +293,7 @@
         </p>
         <p>
           <label>Required Courses</label>
-          <input type="number" name="required_courses" value="<?php echo $required_courses;?>">
+          <input type="number" name="required_courses" min="0" value="<?php echo $required_courses;?>">
         </p>
         <p>
           <label>Department Description</label>
@@ -333,6 +333,58 @@
       echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
     }
   }
+
+
+
+  /* course table functions */
+
+  function admin_draw_courses_view($dbc){
+
+    $sql="SELECT * FROM gwb_training.courses";
+
+    $result = mysqli_query($dbc, $sql);
+
+    echo "<table>\n";
+    echo '<tr>
+            <th>Dept. ID</th>
+            <th>Dept. Name</th>
+            <th>Required Courses</th>
+            <th>Actions</th>
+        </tr>' . "\n";
+    # loop through each record in the users table
+    while ($row = mysqli_fetch_array($result)){
+            echo "<tr class=\"center\">\n";
+            echo "
+              <td>{$row['department_id']}</td>
+              <td>{$row['department_name']}</td>
+              <td>{$row['required_courses']}</td>
+              <td><a href=\"?delete_course={$row['course_id']}\" onclick=\"return confirm('Delete Course {$row['course_name']}?');\"><img src='img/ico_x.png' alt='Delete' title='Delete'></a></td>\n";
+            echo "</tr>\n";
+    } # end of while loop
+    echo "</table>\n";
+  }
+
+  if (isset($_GET['delete_course'])) {
+
+    # handle ?delete_user=
+    # write sql
+    // $sql="DELETE FROM users
+    //       WHERE user_id = {$_GET['delete_user']}";
+
+    $sql="DELETE FROM gwb_training.courses 
+          WHERE course_id = {$_GET['delete_course']}";
+
+    # perform Q
+    mysqli_query($dbc, $sql);
+
+    # check results
+    if (mysqli_affected_rows($dbc) == 1) {
+      echo "<p><img src='img/ico_true.png'> The course was successfully deleted from the database!</p>";
+    } else {
+      echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
+    }
+  }
+
 
 
 

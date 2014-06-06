@@ -58,7 +58,7 @@
 			<form method="POST" action="departments_add.php" class="inputform departmentform">
 				<p>
 					<label>Department ID</label>
-					<input type="number" name="department_id" value="<?php if(isset($_POST['department_id'])){echo $_POST['department_id'];}?>">
+					<input type="number" name="department_id" min="0" value="<?php if(isset($_POST['department_id'])){echo $_POST['department_id'];}?>">
 				</p>
 				<p>
 					<label>Department Name</label>
@@ -66,7 +66,7 @@
 				</p>
 				<p>
 					<label>Required Courses</label>
-					<input type="number" name="required_courses" value="<?php if(isset($_POST['required_courses'])){echo $_POST['required_courses'];}?>">
+					<input type="number" name="required_courses" min="0" value="<?php if(isset($_POST['required_courses'])){echo $_POST['required_courses'];}?>">
 				</p>
 				<p>
 					<label>Department Description</label>
