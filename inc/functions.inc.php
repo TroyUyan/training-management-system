@@ -340,29 +340,53 @@
 
   function admin_draw_courses_view($dbc){
 
-    $sql="SELECT * FROM gwb_training.courses";
+    # divide the departments into seperate tables with their own courses
+    $sql_div="SELECT department_id, department_name, required_courses
+              FROM gwb_training.departments
+              WHERE department_id > 0";
+    $result_div = mysqli_query($dbc, $sql_div);
 
-    $result = mysqli_query($dbc, $sql);
+    # top-level loop starts
+    while ($row_div = mysqli_fetch_array($result_div)){
 
-    echo "<table>\n";
-    echo '<tr>
-            <th>Dept. ID</th>
-            <th>Dept. Name</th>
-            <th>Required Courses</th>
-            <th>Actions</th>
-        </tr>' . "\n";
-    # loop through each record in the users table
-    while ($row = mysqli_fetch_array($result)){
-            echo "<tr class=\"center\">\n";
-            echo "
-              <td>{$row['department_id']}</td>
-              <td>{$row['department_name']}</td>
-              <td>{$row['required_courses']}</td>
-              <td><a href=\"?delete_course={$row['course_id']}\" onclick=\"return confirm('Delete Course {$row['course_name']}?');\"><img src='img/ico_x.png' alt='Delete' title='Delete'></a></td>\n";
-            echo "</tr>\n";
-    } # end of while loop
-    echo "</table>\n";
-  }
+      # each tables titles
+      echo "<br>";
+      echo "<h3>Dept. #{$row_div['department_id']}: {$row_div['department_name']}</h3>";
+      echo "<h4>Required Courses: {$row_div['required_courses']}</h4>";
+
+      # each table
+      echo "<table>\n";
+
+      echo '<tr>
+              <th>Course ID</th>
+              <th>Course Name</th>
+              <th>Actions</th>
+            </tr>' . "\n";
+
+
+      # loop through each course for this department
+      $sql_inner = "SELECT course_id, course_name
+                    FROM gwb_training.courses
+                    WHERE department_id = {$row_div['department_id']}";
+      $result_inner = mysqli_query($dbc, $sql_inner);
+
+      while ($row = mysqli_fetch_array($result_inner)){
+              echo "<tr class=\"center\">\n";
+              echo "
+                <td>{$row['course_id']}</td>
+                <td>{$row['course_name']}</td>
+                <td><a href=\"?delete_course={$row['course_id']}\" onclick=\"return confirm('Delete Course {$row['course_name']}?');\"><img src='img/ico_x.png' alt='Delete' title='Delete'></a></td>\n";
+              echo "</tr>\n";
+      } # end of inner while loop
+
+      echo "</table>\n";
+
+    } # end top-level loop
+
+  } # end function
+
+
+
 
   if (isset($_GET['delete_course'])) {
 
