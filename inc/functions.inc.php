@@ -351,17 +351,22 @@
 
       # each tables titles
       echo "<br>";
-      echo "<h3>Dept. #{$row_div['department_id']}: {$row_div['department_name']}</h3>";
+      echo "<h3>{$row_div['department_name']} (Dept. ID: {$row_div['department_id']})</h3>";
       echo "<h4>Required Courses: {$row_div['required_courses']}</h4>";
+      $sql_count = "SELECT course_id
+                    FROM gwb_training.courses
+                    WHERE department_id = {$row_div['department_id']}";
+      $result_count = mysqli_num_rows(mysqli_query($dbc, $sql_count));
+      echo "<h4>Available Courses: $result_count</h4>";
 
       # each table
       echo "<table>\n";
 
-      echo '<tr>
+      echo "<tr>
               <th>Course ID</th>
-              <th>Course Name</th>
+              <th>{$row_div['department_name']} Courses</th>
               <th>Actions</th>
-            </tr>' . "\n";
+            </tr>" . "\n";
 
 
       # loop through each course for this department
