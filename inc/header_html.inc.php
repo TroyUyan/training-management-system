@@ -17,18 +17,49 @@
 				<p>Help Us Help You Take Over the World</p>
 			</div> <!-- end motto -->
 			<div class="nav">
-				<ul>
-					<li id="home"><a href="index.php" alt="Return to Greenwell Bank Home Page">HOME</a></li>
-					<li><a href="main.php" alt="Return to Greenwell Bank Home Page">MAIN</a></li>
-					<li id="logout"><a href="logout.php" alt="Logout">LOG OUT</a></li>
-				</ul>
+			<?php 
+				if ($_SESSION['usergroup_id'] == 4) { ?>
+					<ul>
+						<li><a href="main.php" title="Home Page">HOME</a></li>
+						<li><a href="users_view.php" title="View Users">USERS</a></li>
+						<li><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
+						<li><a href="courses_view.php" title="View Courses">COURSES</a></li>
+						<li><a href="departments_view.php" title="View Departments">DEPARTMENTS</a></li>
+						<li><a href="logout.php" title="Logout">LOG OUT</a></li>
+					</ul>
+				<?php } elseif ($_SESSION['usergroup_id'] == 3) { ?>
+					<ul>
+						<li><a href="main.php" title="Home Page">HOME</a></li>
+						<li><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
+						<li><a href="courses_view.php" title="View Courses">COURSES</a></li>
+						<li><a href="departments_view.php" title="View Departments">DEPARTMENTS</a></li>
+						<li><a href="logout.php" title="Logout">LOG OUT</a></li>
+					</ul>
+				<?php } elseif ($_SESSION['usergroup_id'] == 2 { ?>
+					<ul>
+						<li><a href="main.php" title="Home Page">HOME</a></li>
+						<li><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
+						<li><a href="courses_view.php" title="View Courses">COURSES</a></li>
+						<li><a href="departments_view.php" title="View Departments">DEPARTMENTS</a></li>
+						<li><a href="logout.php" title="Logout">LOG OUT</a></li>
+					</ul>
+				<?php } elseif ($_SESSION['usergroup_id'] == 1 { ?>
+					<ul>
+						<li><a href="main.php" title="Home Page">MY PROGRESS</a></li>
+						<li><a href="courses_schedule.php" title="View Courses">UPCOMING COURSES</a></li>
+						<li><a href="logout.php" title="Logout">LOG OUT</a></li>
+					</ul>
+				<?php } elseif (!isset($_SESSION['usergroup_id'])) { ?>
+					<ul>
+						<li><a href="index.php" title="Home Page">LOGIN</a></li>
+						<li><a href="help.php" title="View Courses">HELP</a></li>
+					</ul>
+				<?php }
+			#End overall nav block 
+			?>
 			</div> <!-- end nav -->
 			</div> <!-- end wrapper -->
 		</header>
 
 		<div id="content" >
-			<div class="wrapper">
-<!-- 			<div id="helpbar">
-	<a href="help.html" title="Need help?" class="helpbutton"><strong>&#63;</strong></a>
-</div>end helpbar -->
-			
+			<div class="wrapper">		

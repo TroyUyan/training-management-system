@@ -30,6 +30,8 @@ logo in the nav links to index when not logged in and main when logged in
 
 view users needs a view inactive users or view users table with inactive users
 
+index.php bank picture needs to be much smaller size
+
 ---
 help to-add:
 passwords are case sensitive
