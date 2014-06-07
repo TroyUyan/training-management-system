@@ -6,18 +6,6 @@ course_id NOT IN
 
 ----
 
-courses CRUD
----
-need courses list
-^ 7-10 courses per dept
-
-courses_view is divided by departments sorted by department ID
-query in query to compare IDs, table joins? 
-
-view_emp_records PER EMPLOYEE in the actions have an eye or something
-table join to see which course ids they have completed
-query courses table to match course IDs have they finished these courses
-
 when adding employee records do it per course
 department selected with get request then conditional if dept_id = 1 etc,
 ^^
@@ -28,35 +16,38 @@ pick dept with get, dropdown for courses, slider for number of employees that we
 then from either uber bulk SQL statement submitted to users_courses table
 
 Course schedule for employees, can view records or view upcoming courses for classes they havent taken yet.
-^ Randomly generated dates
+^ Randomly generated dates in the next two weeks, random result for an array with times [2:30, 3, 3:30, etc] to display a random time and then random array of room numbers
 
+---
 
-departments table fills the edit and create user forms by reading the data from table for id and name
-^also in the courses table when edit or creating a course and selecting which department it belongs to
-
-fill departments and courses data with 2-3 each
-create crud for courses and departments
-finish filling courses and departments with own system
+footer border-top fix
 
 incorporate new dyn_nav branch after have created all users,depts,courses pages.
 ^ Main links link to _view pages that have +CreateNew options.
-
-sort by tableheader link functionality in all _view.php pages
-
-
-export db to git after all 5 tables filled with stock data
 
 
 logo in the nav links to index when not logged in and main when logged in
 
 view users needs a view inactive users or view users table with inactive users
 
-departments_page instead of department_ ;; make everything referecing a section plural
-users already is, change dept and make courses like this
-
+---
 help to-add:
 passwords are case sensitive
 user or pass was not correct
 admin may not have setup account
 check with your train coordinator
+---
+
+
+
+
+if time:
+
+add upcoming course dates?
+
+sort by tableheader link functionality in all _view.php pages?
+
+different theme for viewers and admins (red?)
+
+
 
