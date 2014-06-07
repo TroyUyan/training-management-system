@@ -1,3 +1,11 @@
+sql for a course a user HAS NOT taken:: (sub select)
+SELECT course_id, course_name FROM courses
+WHERE department_id = 1 AND 
+course_id NOT IN 
+(SELECT course_id FROM users_courses WHERE user_id = 15)
+
+----
+
 courses CRUD
 ---
 need courses list
