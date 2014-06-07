@@ -18,35 +18,35 @@
 			</div> <!-- end motto -->
 			<div class="nav">
 			<?php 
-				if ($_SESSION['usergroup_id'] == 4) { ?>
+				if (isset($_SESSION['usergroup_id']) AND $_SESSION['usergroup_id'] == 4) { ?>
 					<ul>
 						<li><a href="main.php" title="Home Page">HOME</a></li>
 						<li><a href="users_view.php" title="View Users">USERS</a></li>
-						<li><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
+						<li class="nav-small"><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
 						<li><a href="courses_view.php" title="View Courses">COURSES</a></li>
 						<li><a href="departments_view.php" title="View Departments">DEPARTMENTS</a></li>
 						<li><a href="logout.php" title="Logout">LOG OUT</a></li>
 					</ul>
-				<?php } elseif ($_SESSION['usergroup_id'] == 3) { ?>
+				<?php } elseif (isset($_SESSION['usergroup_id']) AND $_SESSION['usergroup_id'] == 3) { ?>
 					<ul>
 						<li><a href="main.php" title="Home Page">HOME</a></li>
-						<li><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
+						<li class="nav-small"><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
 						<li><a href="courses_view.php" title="View Courses">COURSES</a></li>
 						<li><a href="departments_view.php" title="View Departments">DEPARTMENTS</a></li>
 						<li><a href="logout.php" title="Logout">LOG OUT</a></li>
 					</ul>
-				<?php } elseif ($_SESSION['usergroup_id'] == 2 { ?>
+				<?php } elseif (isset($_SESSION['usergroup_id']) AND $_SESSION['usergroup_id'] == 2) { ?>
 					<ul>
 						<li><a href="main.php" title="Home Page">HOME</a></li>
-						<li><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
+						<li class="nav-small"><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
 						<li><a href="courses_view.php" title="View Courses">COURSES</a></li>
 						<li><a href="departments_view.php" title="View Departments">DEPARTMENTS</a></li>
 						<li><a href="logout.php" title="Logout">LOG OUT</a></li>
 					</ul>
-				<?php } elseif ($_SESSION['usergroup_id'] == 1 { ?>
+				<?php } elseif (isset($_SESSION['usergroup_id']) AND $_SESSION['usergroup_id'] == 1) { ?>
 					<ul>
 						<li><a href="main.php" title="Home Page">MY PROGRESS</a></li>
-						<li><a href="courses_schedule.php" title="View Courses">UPCOMING COURSES</a></li>
+						<li class="nav-small"><a href="courses_schedule.php" title="View Courses">UPCOMING COURSES</a></li>
 						<li><a href="logout.php" title="Logout">LOG OUT</a></li>
 					</ul>
 				<?php } elseif (!isset($_SESSION['usergroup_id'])) { ?>

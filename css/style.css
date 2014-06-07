@@ -122,7 +122,9 @@ a:active { color: #111; }
 	padding-top:0.5em;
 }
 
-
+.nav-small {
+	font-size:0.8em;
+}
 
 .line {
 	width:100%;
@@ -443,13 +445,12 @@ tr:nth-of-type(odd) {
 }
 
 .footerclear {
-margin-bottom:1em;
+padding-bottom:1em;
 background-color: #fff;}
 
 /* footer */
 footer {
-	margin-top: 1em;
-	padding-top: .5em;
+	padding-top: 1.5em;
 	border-top: 6px solid #111;
 	background:#bad2b9;
 }
