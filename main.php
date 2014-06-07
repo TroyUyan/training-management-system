@@ -18,7 +18,7 @@
 				<a href="users_view.php"><p class="sectionbutton">View All Users</p></a>
 				<a href="users_add.php"><p class="sectionbutton">Add New User</p></a>
 				<a href="records_view.php"><p class="sectionbutton">View Employee Records</p></a>
-				<a href="records_add.php"><p class="sectionbutton">Edit Employee Records</p></a>
+				<a href="records_add.php"><p class="sectionbutton">Add Course Results</p></a>
 			</div>
 
 			<div class="tablesection">

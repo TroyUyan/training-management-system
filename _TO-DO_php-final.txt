@@ -30,7 +30,9 @@ logo in the nav links to index when not logged in and main when logged in
 
 view users needs a view inactive users or view users table with inactive users
 
-index.php bank picture needs to be much smaller size
+index.php bank picture needs to be much smaller size 
+
+after all functions completed, go through every single script and adjust permission conditional, make sure links and such do not exsist for viewers or coord if they dont have permission to even get to the page in the first place
 
 ---
 help to-add:
