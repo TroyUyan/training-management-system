@@ -1,7 +1,7 @@
 		</div> <!-- end clear -->
 		</div> <!-- end content -->	
 
-		<div class="clear footerclear"><br><div>
+		<div class="clear footerclear"><br></div>
 		<footer>
 			<div class="wrapper">
 			

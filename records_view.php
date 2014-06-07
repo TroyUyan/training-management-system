@@ -3,18 +3,65 @@
 	include ('inc/header.inc.php');
 ?>
 
-	<h2>View Employee Records</h2>
-	<p>View each user's training progress for each department.</p>
-
 	<?php
 
 		if ($_SESSION['usergroup_id'] == 4) {
 
-
 			#Admin
+			echo "<h2>View Employee Records</h2>";
+			echo "<p>View each user's training progress for each department.</p>";
+
       echo '<p><a href="records_add.php"> <img src="img/ico_add"> Add Employee Records</a></p>';
       echo '<div class="clear"></div>';
+
+      # if user clicks on the "view" action for a single user
+      if (isset($_GET['view_user'])) {
+
+      	$view_user_id = $_GET['view_user'];
+      	$sql_view_user = "SELECT users.user_id, users.first_name, users.last_name, departments.department_id, departments.department_name, departments.required_courses
+      										FROM users
+      										INNER JOIN departments
+      										on departments.department_id = users.department_id
+      										WHERE user_id = $view_user_id";
+      	$result_view_user = mysqli_query($dbc, $sql_view_user);
+
+      	while ($row_view_user = mysqli_fetch_array($result_view_user)) {
+
+      		echo "<br><hr><h3>Viewing records for {$row_view_user['first_name']} {$row_view_user['last_name']}</h3>";
+      		echo "<p>Employee of {$row_view_user['department_name']}</p>";
+
+      		$sql_users_courses_name = "SELECT users_courses.user_id, users_courses.course_id, courses.course_name
+					      										FROM users_courses
+					      										INNER JOIN courses
+					      										on users_courses.course_id = courses.course_id
+					      										WHERE user_id = $view_user_id";
+
+					$result_users_courses_name = mysqli_query($dbc, $sql_users_courses_name);
+
+					echo "<h4>Completed Courses for {$row_view_user['department_name']}:</h4>";
+
+					while ($row_users_courses_name = mysqli_fetch_array($result_users_courses_name)) {
+						echo "<img src='img/ico_true.png'> {$row_users_courses_name['course_name']}<br>";
+					}
+
+					$completed_courses = mysqli_num_rows($result_users_courses_name);
+					$needed_courses = $row_view_user['required_courses'];
+	      	echo "<h4>Completed $completed_courses courses out of $needed_courses required.</h4>";
+	      	if ($completed_courses >= $needed_courses) {
+          	echo "<p><img src='img/ico_true.png'> This employee is fully trained!</p>";
+          } else {
+          	$to_go = $needed_courses - $completed_courses;
+          	echo "<p><img src='img/ico_false.png'> This employee needs $to_go more courses to be fully trained.</p>";
+          }
+
+	      	echo "<br><hr>";
+
+				}
+
+      } #end if _GET isset
       
+
+      # main line to display information
 
       # divide the departments into seperate tables with their own courses
 	    $sql_div="SELECT department_id, department_name, required_courses
@@ -63,14 +110,14 @@
 	              echo "
 	                <td>{$row_inner['first_name']} {$row_inner['last_name']}</td>
 	                <td>$courses_complete &nbsp;/&nbsp; {$row_div['required_courses']}</td>
-	                <td>";
+	                <td style='text-align:left;'>";
 	                if ($courses_complete >= $row_div['required_courses']) {
-	                	echo "<img src='img/ico_true.png'> Complete";
+	                	echo "&nbsp;&nbsp;<img src='img/ico_true.png'> Complete";
 	                } else {
-	                	echo "<img src='img/ico_false.png'> Incomplete";
+	                	echo "&nbsp;&nbsp;<img src='img/ico_false.png'> Incomplete";
 	                }
 	              echo "</td>
-	                <td>Actions</td>\n";
+	                <td><a href='?view_user={$row_inner['user_id']}'><img src='img/ico_mag.png' alt='View'></a></td>\n";
 	              echo "</tr>\n";
 	      } # end of inner while loop
 

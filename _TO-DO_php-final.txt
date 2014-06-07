@@ -6,6 +6,18 @@ need courses list
 courses_view is divided by departments sorted by department ID
 query in query to compare IDs, table joins? 
 
+view_emp_records PER EMPLOYEE in the actions have an eye or something
+table join to see which course ids they have completed
+query courses table to match course IDs have they finished these courses
+
+when adding employee records do it per course
+department selected with get request then conditional if dept_id = 1 etc,
+^^
+use a loop to cycle through all the availble courses then check boxes to check which employees where there
+OR
+pick dept with get, dropdown for courses, slider for number of employees that were present, POST, then it shows that amount of input forms with data keygen to fill which employee was there
+^^^
+then from either uber bulk SQL statement submitted to users_courses table
 
 Course schedule for employees, can view records or view upcoming courses for classes they havent taken yet.
 ^ Randomly generated dates
@@ -37,4 +49,6 @@ users already is, change dept and make courses like this
 help to-add:
 passwords are case sensitive
 user or pass was not correct
+admin may not have setup account
+check with your train coordinator
 
