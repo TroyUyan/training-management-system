@@ -38,7 +38,7 @@
 
 					mysqli_query($dbc, $sql);
 
-				}
+				} # end request_method = post
 
 
 				#BEFORE THE SUBMIT COURSE FOR IS SUBMITTED
@@ -90,7 +90,8 @@
 				echo "</form>";
 				echo "<div class='clear'></div>";
 				echo "<br><hr><br>";
-			}
+
+			} # end ifisset _GET['report_course']
 
 
 			#break out ?>

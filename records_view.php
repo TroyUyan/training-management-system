@@ -11,7 +11,7 @@
 			echo "<h2>View Employee Records</h2>";
 			echo "<p>View each user's training progress for each department.</p>";
 
-      echo '<p><a href="records_add.php"> <img src="img/ico_add"> Add Employee Records</a></p>';
+      echo '<p><a href="records_add.php"> <img src="img/ico_add"> Add Course Results and Employee Records</a></p>';
       echo '<div class="clear"></div>';
 
       # if user clicks on the "view" action for a single user
