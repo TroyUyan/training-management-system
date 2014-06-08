@@ -1,8 +1,4 @@
-sql for a course a user HAS NOT taken:: (sub select)
-SELECT course_id, course_name FROM courses
-WHERE department_id = 1 AND 
-course_id NOT IN 
-(SELECT course_id FROM users_courses WHERE user_id = 15)
+Site URL: http://50.17.248.59/
 
 ----
 
@@ -21,10 +17,6 @@ get to the page in the first place
 
 yellow buttons do not fit the design (change color)
 
-incorporate new dyn_nav branch after have created all users,depts,courses pages.
-^ Main links link to _view pages that have +CreateNew options.
-
-
 logo in the nav links to index when not logged in and main when logged in
 
 view users needs a view inactive users or view users table with inactive users
@@ -40,8 +32,6 @@ check with your train coordinator
 ---
 
 
-
-
 if time:
 
 add upcoming course dates?
@@ -49,6 +39,16 @@ add upcoming course dates?
 sort by tableheader link functionality in all _view.php pages?
 
 different theme for viewers and admins (red?)
+
+
+
+------
+
+sql for a course a user HAS NOT taken:: (sub select)
+SELECT course_id, course_name FROM courses
+WHERE department_id = 1 AND 
+course_id NOT IN 
+(SELECT course_id FROM users_courses WHERE user_id = 15)
 
 
 
