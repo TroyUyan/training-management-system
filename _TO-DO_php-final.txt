@@ -6,17 +6,16 @@ course_id NOT IN
 
 ----
 
-when adding employee records do it per course
-department selected with get request then conditional if dept_id = 1 etc,
-^^
-use a loop to cycle through all the availble courses then check boxes to check which employees where there
-OR
-pick dept with get, dropdown for courses, slider for number of employees that were present, POST, then it shows that amount of input forms with data keygen to fill which employee was there
-^^^
-then from either uber bulk SQL statement submitted to users_courses table
-
 Course schedule for employees, can view records or view upcoming courses for classes they havent taken yet.
 ^ Randomly generated dates in the next two weeks, random result for an array with times [2:30, 3, 3:30, etc] to display a random time and then random array of room numbers
+
+---
+
+do the screens and nav menus for the rest of the usergroups
+
+after all functions completed, go through every single script and adjust permission conditional,
+make sure links and such do not exsist for viewers or coord if they dont have permission to even
+get to the page in the first place
 
 ---
 
@@ -31,8 +30,6 @@ logo in the nav links to index when not logged in and main when logged in
 view users needs a view inactive users or view users table with inactive users
 
 index.php bank picture needs to be much smaller size 
-
-after all functions completed, go through every single script and adjust permission conditional, make sure links and such do not exsist for viewers or coord if they dont have permission to even get to the page in the first place
 
 ---
 help to-add:
