@@ -186,11 +186,16 @@ a:active { color: #111; }
 }
 
 #fourofour img {
-    margin: 0 auto;
+	display:block;
+	margin:0 auto;
+    width:400px;
+    height:400px;
 }
 
 #fourofour h1 {
-	font-size: 6em;
+	margin:0;
+	padding-left: 20px;
+	font-size: 10em;
 }
 
 /* form */
