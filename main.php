@@ -8,9 +8,7 @@
 
 	<?php
 		if ($_SESSION['usergroup_id'] == 4) {
-			
 			#Admin
-			echo "<p>Usergroup: Admin</p>";
 			?>
 
 			<div class="tablesection">
@@ -39,9 +37,23 @@
 		} elseif ($_SESSION['usergroup_id'] == 3) {
 
 			#Viewer
-			echo "Viewer";
+			?>
+			<div class="tablesection">
+				<h3>Employees</h3>
+				<a href="records_view.php"><p class="sectionbutton">View Employee Records</p></a>
+			</div>
 
+			<div class="tablesection">
+				<h3>Training Courses</h3>
+				<a href="courses_view.php"><p class="sectionbutton">View All Courses</p></a>
+			</div>
 
+			<div class="tablesection">
+				<h3>Bank Departments</h3>
+				<a href="departments_view.php"><p class="sectionbutton">View All Departments</p></a>
+			</div>
+		
+		<?php
 
 		} elseif ($_SESSION['usergroup_id'] == 2) {
 
