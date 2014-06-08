@@ -11,7 +11,7 @@
 <body>
 		<header>
 			<div class="wrapper">
-			<a href="login.php"><img src="img/clearlogo.png" alt="Greenwell Bank logo" class="logo"></a>
+			<a href='index.php' ><img src="img/clearlogo.png" alt="Greenwell Bank logo" class="logo"></a>
 			<h1>Training Tracking Management System</h1>
 			<div id="motto">
 				<p>Help Us Help You Take Over the World</p>
