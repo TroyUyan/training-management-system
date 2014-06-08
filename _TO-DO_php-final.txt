@@ -20,7 +20,7 @@ Course schedule for employees, can view records or view upcoming courses for cla
 
 ---
 
-footer border-top fix
+yellow buttons do not fit the design (change color)
 
 incorporate new dyn_nav branch after have created all users,depts,courses pages.
 ^ Main links link to _view pages that have +CreateNew options.

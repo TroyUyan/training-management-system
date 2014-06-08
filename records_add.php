@@ -6,9 +6,42 @@
 	<?php
 
 		if ($_SESSION['usergroup_id'] == 4) {
-			#Admin
 
 			if (isset($_GET['report_course'])) {
+
+				#AFTER THE SUBMIT COURSE FORM WAS SUBMITTED
+				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+					$course_id = $_POST['course_id'];
+					# echo "Course ID: $course_id";
+
+					$users_array = $_POST['users'];
+
+					#debug array
+					#var_dump($users_array);
+					
+					$value_set = "";
+
+					foreach ($users_array as $key => $value) {
+
+						$value_set .= "($value, $course_id), ";
+
+					}
+					$value_set = substr($value_set, 0, -2);
+					#echo $value_set;
+
+					$sql = "INSERT INTO users_courses
+									(user_id, course_id)
+									VALUES $value_set";
+
+					#echo "$sql";
+
+					mysqli_query($dbc, $sql);
+
+				}
+
+
+				#BEFORE THE SUBMIT COURSE FOR IS SUBMITTED
 
 				$department_id = $_GET['report_course'];
 
@@ -22,16 +55,45 @@
 
 				echo "<h2>Adding Course Record for $department_name</h2>";
 
+				# get course names
+				$sql = "SELECT course_id, course_name
+								FROM courses
+								WHERE department_id = $department_id";
+				$result = mysqli_query($dbc, $sql);
 
+				echo "<form method='POST' action='records_add.php?report_course=$department_id'>";
+				
+				# drop-down for courses of this department
+				echo "<p>Select which training course was completed:</p>";
+				echo "<p><select name='course_id'>\n";
+				while ($rows = mysqli_fetch_array($result)) {
+					echo "<option value='{$rows['course_id']}'>{$rows['course_name']}</option>\n";
+				}
+				echo "</select></p>\n";
 
-				//select box for which course
-				//check boxes for all users
+				# get employee names
+				$sql = "SELECT user_id, first_name, last_name
+								FROM users
+								WHERE department_id = $department_id
+								AND active = 1";
+				$result = mysqli_query($dbc, $sql);
+
+				# check boxes for all users assigned to this department
+				echo "<br><p>Check which employees of the $department_name completed the course:</p>";
+				echo "<p>";
+				while ($rows = mysqli_fetch_array($result)) {
+					echo "<input type='checkbox' name='users[]' value='{$rows['user_id']}'>{$rows['first_name']} {$rows['last_name']}<br>\n";
+				}
+				echo "</p>";
+
+				echo "<input type='submit' class='button' value='Submit Course Record'>";
+				echo "</form>";
+				echo "<div class='clear'></div>";
 				echo "<br><hr><br>";
 			}
 
 
 			#break out ?>
-
 			<h2>Add Course Records</h2>
 			<p>After a training course has been completed, use this page to insert the record of the courses completion and which employees were present.</p>
 
