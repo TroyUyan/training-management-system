@@ -3,8 +3,8 @@ CSS for PHP2 (CTEC 227) Final, Spring 2014
 Training tracking management system
 Team - Troy Uyan, Savanna Lord, Christine Watson
 
-Project colors: #fff; background #292930; green #bad2b9; #e8e8e8; 
-light green #EAF2EA; blackish #111; medium green #D6E4D5; 
+Project colors: #fff; grey #292930; green #bad2b9; grey #e8e8e8; 
+light green #EAF2EA; blackish #111; medium green #D6E4D5; dk green #A7BDA6
 cta #ffcc00; cta hov #f9de6b;
 */
 body {
@@ -106,7 +106,7 @@ a:hover {
 }
 
 a {
-  color: #111;
+  color: #A7BDA6;
   text-decoration: none;
 }
 
@@ -155,6 +155,7 @@ a:active { color: #111; }
 
 .helpbutton:hover {
 	background:#f9de6b;
+	color:#111;
 }
 
 .button {
@@ -184,7 +185,13 @@ a:active { color: #111; }
 	color:#e8e8e8;
 }
 
+#fourofour img {
+    margin: 0 auto;
+}
 
+#fourofour h1 {
+	font-size: 6em;
+}
 
 /* form */
 

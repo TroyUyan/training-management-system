@@ -87,7 +87,7 @@
 			?>
 				
 			</div> <!-- end login-aside -->
-			<img src="img/greenwell_bank.png" alt="colonial style brick bank building" class="building">
+			<img src="img/greenwell_bank.jpg" alt="colonial style brick bank building" class="building">
 			<div id="content1">
 				<p>Greenwell Bank policy requires all bank employees to complete several training courses each year. It is your responsibility to check on your progress regularly to ensure you meet the requirements.</p>
 				<p>If you are experiencing difficulty logging in, and it is your first time logging into the system, please contact the IT Department. If you are not new to the system, but are experiencing difficulty logging in, please <a href="help.php">consult the help page</a>. Please contact the IT Department by creating a ticket on the intranet if you can not find a solution to your issue after consulting the help page.</p>
