@@ -88,65 +88,53 @@
 
     	$row_view_user = mysqli_fetch_array($result_view_user);
 
-
-
-
-
-
 			echo "<p>Here you can view your current employee training progress for the {$row_view_user['department_name']}.</p>";
+			echo "<p>You need {$row_view_user['required_courses']} courses to be fully trained for this department.</p>";
 
-      echo '<p><a href="records_add.php"> <img src="img/ico_add"> Add Course Results and Employee Records</a></p>';
       echo '<div class="clear"></div>';
-
     	
+  		# Query what user HAS taken
+  		$sql_users_courses_name = "SELECT users_courses.user_id, users_courses.course_id, courses.course_name
+			      										FROM users_courses
+			      										INNER JOIN courses
+			      										on users_courses.course_id = courses.course_id
+			      										WHERE user_id = $view_user_id";
 
-   		echo "<br><hr><h3>Viewing records for {$row_view_user['first_name']} {$row_view_user['last_name']}</h3>";
-    	echo "<p>Employee of {$row_view_user['department_name']}</p>";
+			$result_users_courses_name = mysqli_query($dbc, $sql_users_courses_name);
 
-    		# Query what user HAS taken
+			echo "<h4>Your Completed Courses for the {$row_view_user['department_name']}:</h4>";
 
-    		$sql_users_courses_name = "SELECT users_courses.user_id, users_courses.course_id, courses.course_name
-				      										FROM users_courses
-				      										INNER JOIN courses
-				      										on users_courses.course_id = courses.course_id
-				      										WHERE user_id = $view_user_id";
-
-				$result_users_courses_name = mysqli_query($dbc, $sql_users_courses_name);
-
-				echo "<h4>Completed Courses for {$row_view_user['department_name']}:</h4>";
-
-				while ($row_users_courses_name = mysqli_fetch_array($result_users_courses_name)) {
-					echo "<img src='img/ico_true.png'> {$row_users_courses_name['course_name']}<br>";
-				}
+			while ($row_users_courses_name = mysqli_fetch_array($result_users_courses_name)) {
+				echo "<img src='img/ico_true.png'> {$row_users_courses_name['course_name']}<br>";
+			}
 
 
-				# Query what user HAS NOT taken
+			# Query what user HAS NOT taken
 
-				$sql_users_courses_name2 = "SELECT course_id, course_name FROM courses
-																	 WHERE department_id = {$row_view_user['department_id']} AND 
-																	 course_id NOT IN
-																	 (SELECT course_id FROM users_courses WHERE user_id = {$row_view_user['user_id']})";
+			$sql_users_courses_name2 = "SELECT course_id, course_name FROM courses
+																 WHERE department_id = {$row_view_user['department_id']} AND 
+																 course_id NOT IN
+																 (SELECT course_id FROM users_courses WHERE user_id = {$row_view_user['user_id']})";
 
-				$result_users_courses_name2 = mysqli_query($dbc, $sql_users_courses_name2);
+			$result_users_courses_name2 = mysqli_query($dbc, $sql_users_courses_name2);
 
-				echo "<h4>Incomplete Courses for {$row_view_user['department_name']}:</h4>";
+			echo "<h4>Courses You Could Take for the {$row_view_user['department_name']}:</h4>";
 
-				while ($row_users_courses_name2 = mysqli_fetch_array($result_users_courses_name2)) {
-					echo "<img src='img/ico_false.png'> {$row_users_courses_name2['course_name']}<br>";
-				}
+			while ($row_users_courses_name2 = mysqli_fetch_array($result_users_courses_name2)) {
+				echo "<img src='img/ico_false.png'> {$row_users_courses_name2['course_name']}<br>";
+			}
 
-				# compare is the emp fully trained or not
-				$completed_courses = mysqli_num_rows($result_users_courses_name);
-				$needed_courses = $row_view_user['required_courses'];
-      	echo "<h4>Completed $completed_courses courses out of $needed_courses required.</h4>";
-      	if ($completed_courses >= $needed_courses) {
-        	echo "<p><img src='img/ico_true.png'> This employee is fully trained!</p>";
-        } else {
-        	$to_go = $needed_courses - $completed_courses;
-        	echo "<p><img src='img/ico_false.png'> This employee needs $to_go more courses to be fully trained.</p>";
-        }
-
-      	echo "<br><hr>";
+			# compare is the emp fully trained or not
+			$completed_courses = mysqli_num_rows($result_users_courses_name);
+			$needed_courses = $row_view_user['required_courses'];
+    	echo "<h4>Completed $completed_courses courses out of $needed_courses required.</h4>";
+    	if ($completed_courses >= $needed_courses) {
+      	echo "<p><img src='img/ico_true.png'> Congratulations! You are <strong>fully trained</strong>!</p>";
+      } else {
+      	$to_go = $needed_courses - $completed_courses;
+      	echo "<p><img src='img/ico_false.png'> You need <strong>$to_go more</strong> courses to be fully trained.</p>";
+      	echo "<p><a href='courses_schedule.php'>View upcoming training opportunities for these courses.</a></p>";
+      }
 
 			
 		} else {
