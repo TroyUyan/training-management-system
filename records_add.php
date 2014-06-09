@@ -5,7 +5,7 @@
 
 	<?php
 
-		if ($_SESSION['usergroup_id'] == 4) {
+		if ($_SESSION['usergroup_id'] == 4 OR $_SESSION['usergroup_id'] == 2) {
 
 			if (isset($_GET['report_course'])) {
 

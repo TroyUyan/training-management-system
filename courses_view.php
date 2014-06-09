@@ -7,9 +7,9 @@
 
 	<?php
 
-		if ($_SESSION['usergroup_id'] == 4) {
+		if ($_SESSION['usergroup_id'] == 4 OR $_SESSION['usergroup_id'] == 2) {
 
-			#Admin
+			#Admin and coord
       echo "<h3>View Courses Tables</h3>";
       echo '<p><a href="courses_add.php"> <img src="img/ico_add"> Create New Course</a></p>';
       echo '<div class="clear"></div>';

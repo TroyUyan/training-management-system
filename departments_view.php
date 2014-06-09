@@ -15,6 +15,13 @@
       echo '<div class="clear"></div>';
       admin_draw_departments_view($dbc);
 
+		} elseif ($_SESSION['usergroup_id'] == 2) {
+			
+			#coordinator
+      echo "<h3>View Departments Table</h3>";
+      echo '<div class="clear"></div>';
+      viewer_draw_departments_view($dbc);
+
 		} else {
 			permission();
 		}

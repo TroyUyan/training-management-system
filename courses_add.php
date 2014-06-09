@@ -7,9 +7,9 @@
 	<h3>Add Course</h3>
 
 	<?php
-		if ($_SESSION['usergroup_id'] == 4) {
+		if ($_SESSION['usergroup_id'] == 4 OR $_SESSION['usergroup_id'] == 2) {
 
-			#Admin
+			#Admin and coord
 
 			if ($_SERVER['REQUEST_METHOD'] == "POST") {
 

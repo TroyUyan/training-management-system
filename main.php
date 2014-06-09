@@ -52,8 +52,27 @@
 
 		} elseif ($_SESSION['usergroup_id'] == 2) {
 
-			#Coordinator
-			echo "Coordinator";
+			#coordinator
+			?>
+
+			<div class="tablesection">
+				<h3>Employee Records</h3>
+				<a href="records_view.php"><p class="sectionbutton">View Employee Records</p></a>
+				<a href="records_add.php"><p class="sectionbutton">Add Course Results</p></a>
+			</div>
+
+			<div class="tablesection">
+				<h3>Training Courses</h3>
+				<a href="courses_view.php"><p class="sectionbutton">View All Courses</p></a>
+				<a href="courses_add.php"><p class="sectionbutton">Add New Course</p></a>
+			</div>
+
+			<div class="tablesection">
+				<h3>Bank Departments</h3>
+				<a href="departments_view.php"><p class="sectionbutton">View All Departments</p></a>
+			</div>
+
+		<?php
 
 
 		} elseif ($_SESSION['usergroup_id'] == 1) {

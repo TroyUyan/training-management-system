@@ -468,6 +468,35 @@
 
   } # end function
 
+  
+
+  /* coordinator specific */
+  function viewer_draw_departments_view($dbc){
+
+      $sql="SELECT * FROM gwb_training.departments";
+
+      $result = mysqli_query($dbc, $sql);
+
+      echo "<table>\n";
+      echo '<tr>
+              <th>Dept. ID</th>
+              <th>Dept. Name</th>
+              <th>Required Courses</th>
+              <th>Actions</th>
+          </tr>' . "\n";
+      # loop through each record in the users table
+      while ($row = mysqli_fetch_array($result)){
+              echo "<tr class=\"center\">\n";
+              echo "
+                <td>{$row['department_id']}</td>
+                <td>{$row['department_name']}</td>
+                <td>{$row['required_courses']}</td>
+                <td><a href=\"?edit_department={$row['department_id']}\"><img src='img/ico_edit.png' alt='Edit' title='Edit'></a></td>\n";
+              echo "</tr>\n";
+      } # end of while loop
+      echo "</table>\n";
+  }
+
 
 
 

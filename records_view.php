@@ -5,9 +5,9 @@
 
 	<?php
 
-		if ($_SESSION['usergroup_id'] == 4) {
+		if ($_SESSION['usergroup_id'] == 4 OR $_SESSION['usergroup_id'] == 2) {
 
-			#Admin
+			#Admin and coord
 			echo "<h2>View Employee Records</h2>";
 			echo "<p>View each user's training progress for each department.</p>";
 
