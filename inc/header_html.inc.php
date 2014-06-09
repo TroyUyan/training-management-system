@@ -38,7 +38,6 @@
 						<li><a href="main.php" title="Home Page">HOME</a></li>
 						<li class="nav-small"><a href="records_view.php" title="View Employee Records">EMPLOYEE RECORDS</a></li>
 						<li><a href="courses_view.php" title="View Courses">COURSES</a></li>
-						<li><a href="departments_view.php" title="View Departments">DEPARTMENTS</a></li>
 						<li><a href="logout.php" title="Logout">LOG OUT</a></li>
 					</ul>
 				<?php } elseif (isset($_SESSION['usergroup_id']) AND $_SESSION['usergroup_id'] == 2) { ?>

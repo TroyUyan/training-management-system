@@ -47,11 +47,6 @@
 				<h3>Training Courses</h3>
 				<a href="courses_view.php"><p class="sectionbutton">View All Courses</p></a>
 			</div>
-
-			<div class="tablesection">
-				<h3>Bank Departments</h3>
-				<a href="departments_view.php"><p class="sectionbutton">View All Departments</p></a>
-			</div>
 		
 		<?php
 

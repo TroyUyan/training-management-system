@@ -18,7 +18,7 @@
 		} elseif ($_SESSION['usergroup_id'] == 3) {
 
 			#viewer
-      echo "<h3>View Courses Tables</h3>";
+      echo "<h3>View Courses For Each Department</h3>";
       echo '<div class="clear"></div>';
       viewer_draw_courses_view($dbc);
 
