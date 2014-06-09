@@ -15,6 +15,14 @@
       echo '<div class="clear"></div>';
       admin_draw_courses_view($dbc);
 
+		} elseif ($_SESSION['usergroup_id'] == 3) {
+
+			#viewer
+      echo "<h3>View Courses Tables</h3>";
+      echo '<div class="clear"></div>';
+      viewer_draw_courses_view($dbc);
+
+
 		} else {
 			permission();
 		}

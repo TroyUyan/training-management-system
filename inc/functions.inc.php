@@ -416,6 +416,60 @@
 
 
 
+  /* viewer-specific */
+
+  function viewer_draw_courses_view($dbc){
+
+    # divide the departments into seperate tables with their own courses
+    $sql_div="SELECT department_id, department_name, required_courses
+              FROM gwb_training.departments
+              WHERE department_id > 0";
+    $result_div = mysqli_query($dbc, $sql_div);
+
+    # top-level loop starts
+    while ($row_div = mysqli_fetch_array($result_div)){
+
+      # each tables titles
+      echo "<br>";
+      echo "<h3>{$row_div['department_name']} (Dept. ID: {$row_div['department_id']})</h3>";
+      echo "<h4>Required Courses: {$row_div['required_courses']}</h4>";
+      $sql_count = "SELECT course_id
+                    FROM gwb_training.courses
+                    WHERE department_id = {$row_div['department_id']}";
+      $result_count = mysqli_num_rows(mysqli_query($dbc, $sql_count));
+      echo "<h4>Available Courses: $result_count</h4>";
+
+      # each table
+      echo "<table>\n";
+
+      echo "<tr>
+              <th>Course ID</th>
+              <th>{$row_div['department_name']} Courses</th>
+            </tr>" . "\n";
+
+
+      # loop through each course for this department
+      $sql_inner = "SELECT course_id, course_name
+                    FROM gwb_training.courses
+                    WHERE department_id = {$row_div['department_id']}";
+      $result_inner = mysqli_query($dbc, $sql_inner);
+
+      while ($row = mysqli_fetch_array($result_inner)){
+              echo "<tr class=\"center\">\n";
+              echo "
+                <td>{$row['course_id']}</td>
+                <td>{$row['course_name']}</td>\n";
+              echo "</tr>\n";
+      } # end of inner while loop
+
+      echo "</table>\n";
+
+    } # end top-level loop
+
+  } # end function
+
+
+
 
   /* Login and permission check */
 
