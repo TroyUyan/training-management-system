@@ -52,8 +52,8 @@
             $usergroup_id = $_POST['usergroup_id'];
             $department_id = $_POST['department_id'];
 
-            # check if username exsists
-            $sql = "SELECT username FROM users WHERE username = $username;";
+            # check if username exists
+            $sql = "SELECT username FROM users WHERE username = $username";
             mysqli_query($dbc, $sql);
 
             if (mysqli_field_count($dbc) == 0) {
