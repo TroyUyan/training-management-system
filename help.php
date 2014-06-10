@@ -4,11 +4,11 @@
 ?>
 
 <div id="content1">
-<h1>Need Help?</h1>
-<p>If you're having trouble logging in, you may have typed your username/password wrong. </p>
-<p>Please note that passwords are case sensitive. If your username or password was not correct the admin may not have setup account.</p> 
-<p>Please check with your trainning coordinator, we apologize for any inconvenience.</p>
-
+	<h1>Need Help Logging In?</h1>
+	<p>If you're having trouble logging in, you may have typed your username or password wrong.</p>
+	<p>Please note that passwords are <strong>case sensitive</strong>.</p>
+	<p>If your username and password are not working, an admin may not have setup your account yet.</p> 
+	<p>Please check with your trainning coordinator for further details on your account information.</p>
 </div>
 
 <div class="tablesection">
