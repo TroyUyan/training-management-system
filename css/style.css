@@ -427,7 +427,7 @@ tr:nth-of-type(odd) {
 
 /* admin forms */
 .inputform {
-	width: 40%;
+	width: 50%;
 }
 
 .inputform label {
