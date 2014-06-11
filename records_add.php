@@ -36,7 +36,14 @@
 
 					#echo "$sql";
 
-					mysqli_query($dbc, $sql);
+					$result = mysqli_query($dbc, $sql);
+					
+					if(mysqli_affected_rows($dbc) >= 1) {
+						echo "<p><img src='img/ico_true'> The course results were successfully posted!</p>";
+					} else {
+						echo "<p><img src='img/ico_false'> The course results were not posted!</p>
+							<p>Note that employees cannot take the same course twice, so at least one employee selected cannot have already taken the course selected.</p>";
+					}
 
 				} # end request_method = post
 
