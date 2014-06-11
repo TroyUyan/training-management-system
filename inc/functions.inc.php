@@ -124,7 +124,12 @@
 
                   # display options based on usergroup table contents
                   while ($rows = mysqli_fetch_array($result)) {
-                    echo "<option value='{$rows['usergroup_id']}'>{$rows['usergroup_name']}</option>\n";
+                    $usergroup_option = "<option value='{$rows['usergroup_id']}'";
+                      if ($rows['usergroup_id'] == $usergroup_id) {
+                        $usergroup_option .= "selected='1'";
+                      }
+                    $usergroup_option .= ">{$rows['usergroup_name']}</option>\n";
+                    echo "$usergroup_option";
                   }
                 // exit php ?>
               </select>
@@ -140,7 +145,14 @@
 
                 # display options based on dept. table contents
                 while ($rows = mysqli_fetch_array($result)) {
-                  echo "<option value='{$rows['department_id']}'>{$rows['department_name']}</option>\n";
+                  // echo "<option value='{$rows['department_id']}'>{$rows['department_name']}</option>\n";
+
+                  $department_option = "<option value='{$rows['department_id']}'";
+                  if ($rows['department_id'] == $department_id) {
+                    $department_option .= "selected='1'";
+                  }
+                  $department_option .= ">{$rows['department_name']}</option>\n";
+                  echo "$department_option";
                 }
                 // exit php ?>
               </select>
