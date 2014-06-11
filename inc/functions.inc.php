@@ -39,27 +39,20 @@
 
       if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-        if(!empty($_POST['username']) &&
-          !empty($_POST['pass']) &&
+        if(!empty($_POST['pass']) &&
           !empty($_POST['first_name']) &&
           !empty($_POST['last_name']) &&
           !empty($_POST['usergroup_id'])
           ) {
-            $username = $_POST['username'];
             $pass = $_POST['pass'];
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $usergroup_id = $_POST['usergroup_id'];
             $department_id = $_POST['department_id'];
-
-            # check if username exists
-            $sql = "SELECT username FROM users WHERE username = $username";
-            mysqli_query($dbc, $sql);
-
-            if (mysqli_field_count($dbc) == 0) {
+			
               
               $sql="UPDATE users 
-                    SET username = '{$_POST['username']}', pass = '{$_POST['pass']}', first_name = '{$_POST['first_name']}', last_name = '{$_POST['last_name']}', usergroup_id = '{$_POST['usergroup_id']}', department_id = '{$_POST['department_id']}'
+                    SET pass = '{$_POST['pass']}', first_name = '{$_POST['first_name']}', last_name = '{$_POST['last_name']}', usergroup_id = '{$_POST['usergroup_id']}', department_id = '{$_POST['department_id']}'
                     WHERE user_id = $user_id";
 
               mysqli_query($dbc, $sql);
@@ -69,11 +62,7 @@
               } else {
                   echo "<p><img src='img/ico_false.png'> Something has gone wrong, here is the SQL:<br>$sql</p>";
               }
-
-            } else {
-              echo "<p><img src='img/ico_false.png'> That username is already in use! Please pick another.</p>";
-            }
-                
+               
 
 
         } else {
@@ -110,7 +99,7 @@
             </p>
             <p>
               <label>Username</label>
-              <input type="text" name="username" value="<?php echo $username;?>">
+              <input type="text" name="username" value="<?php echo $username;?>" disabled="1">
             </p>
             <p>
               <label>Password</label>

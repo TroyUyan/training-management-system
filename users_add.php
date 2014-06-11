@@ -28,10 +28,10 @@
 						$department_id = $_POST['department_id'];
 
 						# check if username exists
-	          $sql = "SELECT username FROM users WHERE username = $username";
-	          mysqli_query($dbc, $sql);
+	          $sql = "SELECT username FROM users WHERE username = \"$username\"";
+	          $result = mysqli_query($dbc, $sql);
 
-	          if (mysqli_field_count($dbc) == 0) {
+	          if (mysqli_num_rows($result) == 0) {
 	            
 	            $sql="INSERT INTO gwb_training.users (user_id, username, pass, first_name, last_name, usergroup_id, department_id)
 										VALUES (NULL, '$username', '$pass', '$first_name', '$last_name', '$usergroup_id', '$department_id')
