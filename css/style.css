@@ -85,6 +85,7 @@ header h1 {
   width: 16%;
   display: inline;
   float: left;
+  margin:0;
   padding: 2px 0 0 0;
   background: #111;
   border: solid #111;
