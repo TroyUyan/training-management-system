@@ -9,7 +9,7 @@
 	<p>Please note that passwords are <strong>case sensitive</strong>.</p>
 	<p>Make sure you don't have Caps Lock turned on, and try again</p>
 	<p>If your still having trouble logging in with your username or password, an admin may not have setup your account yet.</p> 
-	<p>Please check with your trainning coordinator for further details on your account information.</p>
+	<p>Please check with your training coordinator for further details on your account information.</p>
 	
 </div>
 
